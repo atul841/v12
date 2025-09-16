@@ -48,6 +48,26 @@
 </head>
 
 <body>
+
+  <style>
+
+    /* link ka blue color/underline hatao, poora block click ho */
+.unstyled-link{
+  display:block;
+  text-decoration:none !important;
+  color:inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.unstyled-link:visited{ color:inherit !important; }
+.unstyled-link:hover{ text-decoration:none !important; }
+
+/* Accessibility: keyboard focus dikh jaye (optional but good) */
+.unstyled-link:focus-visible{
+  outline:2px solid #33cc33;
+  outline-offset:3px;
+}
+
+  </style>
   <style>
 /* Start: transparent, sticky */
 .section_navbar{
@@ -138,11 +158,14 @@ body.scrolled .section_navbar{
     <main class="main-wrapper">
       <section class="section_content-wrapper">
         <header class="section_header">
-          <div class="header_review-block">
+
+          <a href="/#growth" nav-link="active">
+          <div class="header_review-block" >
             <div class="div-block-51">
               <div class="review-block_text">✦ Unlocking Wealth and Growth for 1 Million + lives this year. 
                 ✦</div>
             </div>
+            </a>
           </div>
           <div class="padding-global">
             <div class="container-medium">
@@ -177,7 +200,7 @@ body.scrolled .section_navbar{
 
 <div class="text-size-regular subheader " style="width: 960px; height: 50px;">
   Where personality development meets  wisdom  powered by an
-  India Russia collaboration. Start with just <a class="num-gap" style="color: #755083; font-size: 25px;font-style: inherit; font-weight: bolder; margin-left: 5px;"> 7,000</a > <style>
+  India Russia collaboration. <p>   </p> Start with just <a class="num-gap" style="color: #755083; font-size: 25px;font-style: inherit; font-weight: bolder; margin-left: 5px;"> 7,000</a > <style>
 
   </style> <a style="margin-left: 8px;">and earn</a>
   <a class="" style="font-size: 27px; color: rgb(118, 255, 118); font-style: inherit; font-weight: bolder; margin-left: 7px; ">66,000</a> 
@@ -201,7 +224,22 @@ body.scrolled .section_navbar{
 
 
 
+
+
   <style>
+    @media (max-width: 640px){
+  .promo-line{ display:none; }
+}
+
+@media (max-width: 640px){
+  /* 7,000 se aage sab hide */
+  .text-size-regular.subheader .num-gap,
+  .text-size-regular.subheader .num-gap ~ a{
+    display:none !important;
+  }
+}
+
+
     
    .auto-pop  {
   display: inline-block;
@@ -803,7 +841,7 @@ body.scrolled .section_navbar{
 
 
             <!-- Promise of Growth (DIV-only structure) -->
-<div class="pog">
+<div class="pog" id="growth">
 
   <div class="pog-head">
     <div class="growth-block">
@@ -2374,6 +2412,57 @@ You’re free to cancel at any time, but once you do, your access to all courses
 </script>
    <script src="js/script.js"></script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script>
+(function(){
+  const scroller = document.querySelector('.agri-section');
+  if(!scroller) return;
+
+  const prevBtn = document.querySelector('.agri-prev');
+  const nextBtn = document.querySelector('.agri-next');
+
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+  const vw = () => scroller.clientWidth; // each card = 100% width on mobile
+
+  // Current index from scrollLeft (0,1,2…)
+  const getIndex = () => Math.round(scroller.scrollLeft / vw());
+  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+
+  // Snap to a specific card
+  const snapTo = (idx, smooth=true) => {
+    const left = idx * vw();
+    scroller.scrollTo({ left, behavior: smooth ? 'smooth' : 'auto' });
+  };
+
+  // On load + on resize (mobile only) → show middle card (index 1)
+  const setInitial = () => {
+    if(!isMobile()) return;
+    // layout settle hone do, then snap
+    requestAnimationFrame(()=> snapTo(1, false));
+  };
+
+  // Arrow handlers
+  if(prevBtn) prevBtn.addEventListener('click', () => {
+    const idx = clamp(getIndex() - 1, 0, 2);
+    snapTo(idx);
+  });
+  if(nextBtn) nextBtn.addEventListener('click', () => {
+    const idx = clamp(getIndex() + 1, 0, 2);
+    snapTo(idx);
+  });
+
+  // When orientation/size changes, keep middle card centered
+  window.addEventListener('resize', () => { if(isMobile()) snapTo(getIndex(), false); });
+
+  // Initial show middle card on mobile
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setInitial);
+  } else {
+    setInitial();
+  }
+})();
+</script>
+
 
 </body>
 

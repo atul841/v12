@@ -8318,6 +8318,7 @@ figcaption {
   background-repeat: no-repeat;
   background-size: contain;
   outline: none;
+  background-size: 200px;
 }
 .pricing_component.text-align-center {
   flex-direction: column;
