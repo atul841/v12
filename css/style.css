@@ -765,6 +765,10 @@ a,
   --divider:rgba(255,255,255,.14);
   --btn1:#cfeaff; --btn2:#92c7ff;       
 } */ 
+
+
+
+
  
 .footerbg{ 
   background-image: url(bgimage.png);
@@ -890,6 +894,11 @@ a,
   gap: 12px;
   flex-wrap: wrap;
 }
+
+
+
+
+
 
 
 .pricing_tag30 a{
