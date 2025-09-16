@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Terms & Conditions • V&V</title>
+
+<style>
+  :root{
+    --container: 1120px;
+    --radius-lg: 20px;
+    --radius-md: 16px;
+    --shadow: 0 8px 28px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
+    --accent:#1faa55; /* emerald heading */
+    --muted:#667085;
+    --ink:#101828;
+    --card:#fff;
+    --divider: rgba(0,0,0,.09);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    color:var(--ink);
+    background:#f5f5f5;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* ===== NAVBAR STRIP (with your provided BG) ===== */
+  .nav-wrap{
+    background:
+      url("./images/65f2d866372c85372dbbb507_BGG.svg") center/cover no-repeat,
+      #0b0b10;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav{
+    max-width:var(--container);
+    margin:0 auto;
+    height:64px;
+    padding:0 18px;
+    display:flex; align-items:center; justify-content:space-between;
+    color:#e9eef5;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; letter-spacing:.4px;
+  }
+  .brand img{ height:28px; width:auto; display:block }
+  .menu{
+    display:flex; gap:22px; align-items:center; opacity:.95;
+    font-size:14px;
+  }
+  .menu a{ color:#e9eef5; text-decoration:none; position:relative }
+  .menu a::after{
+    content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+    background:transparent; transition:background .2s ease;
+  }
+  .menu a:hover::after{ background:rgba(255,255,255,.5) }
+
+  .lang{
+    display:flex; gap:8px;
+  }
+  .pill{
+    background:#ffd84d; color:#191a1c; font-weight:700;
+    padding:6px 10px; border-radius:999px; font-size:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+    cursor:pointer;
+  }
+
+  /* ===== PAGE WRAP ===== */
+  .wrap{
+    max-width:var(--container);
+    margin:0 auto;
+    padding: 24px 20px 0;
+    background:#fff;
+  }
+  .hero{
+    background:#fff;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding:32px 22px 10px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.06);
+  }
+  .hero h1{
+    margin:6px 0 8px; text-align:center;
+    color:#1c8d46; /* screenshot ka green tone */
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight:800;
+  }
+  .hero p{
+    margin:0 auto; text-align:center; max-width:820px; color:#6b7280;
+    font-size: clamp(14px, 1.6vw, 16px);
+  }
+
+  .divider{
+    height:1px; background:var(--divider); opacity:.6;
+    margin: 18px 0;
+  }
+
+  /* ===== TERMS CARDS ===== */
+  .section{
+    max-width:var(--container);
+    margin:0 auto;
+    padding: 6px 20px 0;
+    background:#fff;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid rgba(16,24,40,.06);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 26px 26px;
+    margin: 16px 0 24px;
+  }
+  .card h3{
+    margin:0 0 8px; color:#1c8d46;
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight:800;
+  }
+  .card p{
+    margin:0; color:#4b5563; font-size: clamp(14px, 1.9vw, 16px);
+  }
+
+  /* ===== STANDALONE NEXT BUTTON (just above footer, right side) ===== */
+  .next-bar{
+    max-width:var(--container); margin: 6px auto 6px; padding: 0 20px;
+    background:#fff; text-align:right;
+  }
+  .btn-next{
+    display:inline-block; padding:10px 18px; border-radius:999px;
+    background:#1c8d46; color:#fff; text-decoration:none; font-weight:700;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 10px 28px rgba(28,141,70,.28);
+  }
+  .btn-next:hover{ background:#166534 }
+
+  /* ===== CTA + FOOTER (your purple blob image) ===== */
+  .cta-wrap{
+    margin-top: 24px;
+    background: #100e1b;
+  }
+  .cta-bg{
+    /* Use the provided footer image */
+    background: url("./images/bgimage1.png") center/cover no-repeat;
+  }
+  .cta{
+    max-width:var(--container);
+    margin:0 auto;
+    padding: 54px 20px 82px;
+    text-align:center; color:#f0ecff;
+  }
+  .cta h2{
+    margin:0 0 10px; font-weight:800;
+    font-size: clamp(22px, 3vw, 34px);
+  }
+  .cta p.small{
+    margin:0 auto; max-width:820px; color:#cfd2ff; opacity:.92;
+  }
+  .cta .btn{
+    display:inline-block; margin-top:18px; padding:10px 18px;
+    border-radius:999px; font-weight:700; text-decoration:none;
+    background:#1c8d46; color:#fff; border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 10px 32px rgba(28,141,70,.34);
+  }
+
+  .footer{
+    max-width:var(--container); margin:0 auto; padding: 0 20px 18px;
+    color:#d9dbff; font-size:13px;
+  }
+  .footer-grid{
+    display:grid; grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr; gap:20px;
+  }
+  .footer h4{ margin:0 0 10px; font-size:13px; opacity:.9 }
+  .footer a{ color:#e9eaff; text-decoration:none; opacity:.85 }
+  .social{ display:flex; gap:10px; align-items:center }
+  .dot{
+    width:28px; height:28px; border-radius:50%; display:inline-grid; place-items:center;
+    background: rgba(255,255,255,.12);
+  }
+  .copyright{
+    text-align:center; opacity:.8; margin-top:10px; padding-bottom:6px;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 1024px){
+    :root{ --container: 920px }
+    .footer-grid{ grid-template-columns: 1.2fr 1fr 1fr; row-gap:22px }
+  }
+  @media (max-width: 768px){
+    :root{ --container: 680px }
+    .nav{ height:58px }
+    .menu{ display:none }               /* mobile: hide center menu like screenshot */
+    .lang .pill{ padding:6px 9px }
+    .card{ padding:20px }
+    .cta{ padding: 44px 16px 64px }
+  }
+  @media (max-width: 480px){
+    :root{ --container: 520px }
+    .nav{ padding:0 12px }
+    .hero{ padding:24px 16px 8px }
+    .card{ padding:16px 14px; border-radius: var(--radius-md) }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+  }
+
+  /* hide Google bar/widget (hum pills se control karenge) */
+  #google_translate_element{ position:absolute; left:-9999px; top:-9999px }
+  .goog-te-banner-frame.skiptranslate{ display:none !important }
+  body{ top:0 !important }
+</style>
+</head>
+
+<body style="background-color: white;">
+    <div id="google_translate_element"></div>
+
+  <!-- NAVBAR WITH PROVIDED BACKGROUND -->
+  <header class="nav-wrap">
+    <div class="nav">
+      <div class="brand">
+        <!-- optional logo image -->
+        <!-- <img src="./images/vv-logo.png" alt="V&V"> -->
+        <img src="./images/logo.png" alt="" style="width: 80px; height: 40px;">
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html">Testimonials ✨</a>
+        <a href="index.html">Courses</a>
+        <a href="index.html">Reviews</a>
+        <a href="index.html">FAQs</a>
+      </nav>
+
+      <div class="lang">
+        <span class="pill">English</span>
+        <span class="pill">русский</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main>
+    <div class="wrap hero">
+      <h1 style="font-weight: 500;">Terms &amp; Conditions</h1>
+      <p>Please read these terms carefully before using our services.</p>
+    </div>
+
+    <div class="wrap">
+      <div class="divider"></div>
+
+      <section class="section">
+        <article class="card">
+          <h3 style="font-weight: 600;">1. Introduction</h3>
+          <p>Welcome to V &amp; V AGRO GLOBAL LLP (“Company”, “we”, “our”, “us”). These Terms of
+Service (“Terms”) govern your enrolment in our courses through the V &amp; V AGRO GLOBAL
+LLP platform. <br> <br>
+Your use of our service is also governed by our Privacy Policy, which explains how we
+collect, protect, use, and disclose your personal information. <br> <br>
+If you do not agree with these Terms and the Privacy Policy, please do not use our services
+or access our content.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">2. Privacy &amp; Data Collection</h3>
+          <p>- We collect personal information you provide, such as name, contact details, payment
+information, etc., to process enrollment, support service delivery, improve our offerings,
+and communicate with you. <br>
+- We use third‑party services where needed (for payments, analytics, etc.), who are bound
+to protect your data.  <br>
+- You have the right to access, update or delete your personal information.
+- For any privacy concerns, contact us at hello@vandvagro.com .</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">3. Course Purchase &amp; Subscription</h3>
+          <p>- When you purchase a product or service, you must provide accurate, complete payment
+and billing information. <br>
+- We reserve the right to refuse or cancel any order for reasons including: unavailability, an
+error in pricing or description, suspected fraudulent transaction, or any violation of our
+policies.  <br>
+- For subscription‑based services, payment recurs automatically on a schedule unless you
+cancel. Billing cycles and amounts depend on the plan you select.</p>
+        </article>
+
+
+        <article class="card">
+          <h3 style="font-weight: 600;">4. Access, Cancellation &amp; Refunds</h3>
+          <p>- Once enrolled, you can cancel your subscription or enrollment at any time. However, if you
+cancel, your access to all courses, materials, and benefits ends immediately. <br>
+- We do not offer refunds once payment is made, because the majority of our content and
+benefits are digital and instantly accessible. <br>
+
+- Even though access ends upon cancellation, you may re‑enroll or wait for future
+promotions or offers if available.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">5. Content &amp; Intellectual Property</h3>
+          <p>- All course materials (videos, documents, etc.) are the property of V &amp; V AGRO GLOBAL LLP
+(or used with permission) and are protected under applicable intellectual property laws. <br>
+- You may not reproduce, distribute, modify, publicly display, or otherwise use any content
+for commercial purposes without explicit written permission. <br>
+- You retain rights to any user‑submitted content, but you authorize V &amp; V AGRO GLOBAL
+LLP to use, modify, publish, or distribute such content as necessary to provide the service.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">6. Account Responsibilities</h3>
+          <p>- You must be of legal age (≥ 18) and provide accurate information when creating and
+maintaining your account. <br>
+- You’re responsible for safeguarding your login credentials. If unauthorized access
+happens, notify us immediately. <br>
+- We may suspend or terminate accounts that violate our Terms or engage in fraudulent,
+abusive, or harmful behavior.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">7. Acceptable Use &amp; Prohibited Conduct</h3>
+          <p>You agree NOT to use our service for: <br>
+- Illegal or harmful activities. <br>
+- Impersonating others or misrepresenting your affiliation with any person or entity. <br>
+- Posting or transmitting any content that violates the rights of others (privacy, copyright,
+etc.). <br>
+- Using bots or automated scripts to access or scrape content without permission. <br>
+- Introducing malware or doing anything that interferes with the proper functioning of our
+service.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">8. Disclaimers &amp; Limitations of Liability</h3>
+          <p>- Our services are provided “as is” and “as available”. We do not guarantee they will be
+error‑free, secure, uninterrupted, or meet all your expectations. <br>
+- V &amp; V AGRO GLOBAL LLP is not liable for indirect, incidental, special, or consequential
+damages arising from your use of the service. <br>
+- To the maximum extent permitted by law, liability is limited to the fees you paid for the
+product or service in question.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">9. Fraud, Safety &amp; Official Channels</h3>
+          <p>- We only communicate with students through official email addresses ending in
+@vandvagro.com . Beware of impersonation from other addresses. <br>
+- We will never ask for your password, OTP, or confidential credentials.
+- For support or queries, please contact hello@vandvagro.com .</p>
+        </article>
+
+         <article class="card">
+          <h3 style="font-weight: 600;">10. Changes to Terms &amp; Service</h3>
+          <p>- We reserve the right to modify or update these Terms at any time. Any changes will be
+posted on this page. <br>
+- Your continued use of V &amp; V AGRO GLOBAL LLP after any change indicates your
+acceptance of the revised Terms.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">11. Governing Law &amp; Dispute Resolution</h3>
+          <p>- These Terms are governed by the laws of India ( Delhi )
+- Any dispute arising under or relating to these Terms shall be subject to the competent
+courts in Delhi , India. <br> <br>
+12. Eligibility &amp; Compliance <br> <br>
+You are responsible for ensuring that your access to and use of our services complies with
+all applicable laws, rules, and regulations in your jurisdiction. By using our services, you
+confirm that such use is lawful in the territory from which you are accessing the platform. <br> <br>
+13. Modification of Service  <br> <br>
+V &amp; V AGRO GLOBAL LLP reserves the right, at its sole discretion, to alter, suspend, or
+discontinue any course, subscription, feature, or service at any time, without liability or
+obligation to provide notice. We may also update pricing or promotional offerings as
+required. <br> <br>
+14. Third-Party Links &amp; Services Disclaimer <br> <br>
+Our platform may contain links to third-party websites or services that are not owned or
+controlled by V &amp; V AGRO GLOBAL LLP. We do not endorse, guarantee, or assume any
+responsibility for the content, policies, or practices of such third-party websites or services. <br>  <br>
+15. Content Moderation <br> <br>
+V &amp; V AGRO GLOBAL LLP reserves the right, but not the obligation, to monitor, review, and
+remove any user-submitted content that we determine, at our sole discretion, violates these
+Terms, applicable law, or infringes the rights of others. Such action may be taken without
+prior notice. <br> <br>
+16. Termination Without Notice <br> <br>
+
+We may suspend, restrict, or terminate your access to the platform, without prior notice or
+liability, if we believe you have violated these Terms, engaged in fraudulent or harmful
+activity, or for any other reason at our discretion. <br> <br>
+17. Indemnification <br> <br>
+You agree to indemnify, defend, and hold harmless V &amp; V AGRO GLOBAL LLP, its partners,
+employees, and affiliates from and against any claims, liabilities, damages, losses, or
+expenses, including reasonable legal fees, arising out of or in any way connected with your
+use of our services, your violation of these Terms, or your infringement of any third-party
+rights.  <br> <br>
+18. Force Majeure <br>  <br>
+V &amp; V AGRO GLOBAL LLP shall not be held liable or responsible for any failure or delay in
+performance resulting from causes beyond our reasonable control, including but not limited
+to natural disasters, strikes, labor disputes, acts of government, internet outages, system
+failures, or other unforeseen events (&#39;Force Majeure Events&#39;).</p>
+        </article>
+
+         
+
+        <article class="card">
+          <h3 style="font-weight: 600;">19. Contact Information</h3>
+          <p>For any questions, complaints, feedback, or technical support, please contact us at: <br> <br>
+Email: hello@vandvagro.com
+Address: 101, Pratap Nagar, Mayur Vihar, Phase 1, East Delhi, East Delhi, East Delhi, Delhi,
+India, 110091 <br> <br>
+
+Acknowledgement:
+By enrolling in or accessing any of our courses or services, you acknowledge that you</p>
+        </article>
+      </section>
+    </div>
+
+    
+
+    <!-- CTA + FOOTER WITH PROVIDED FOOTER IMAGE -->
+    <section class="cta-wrap cta-bg">
+      <div class="cta">
+        <h2>Ready to grow with us?</h2>
+        <p class="small">If you’re interested in learning, earning and transforming your future with V&amp;V, one of our advisors will guide you. have
+read, understood, and agree to be bound by these Terms &amp; Conditions.</p>
+        <a class="btn" href="#get-started">Get started</a>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <img src="./images/logo.png" alt="" style="width: 130px; height: 60px;">
+          </div>
+
+          <div>
+            <h4>COURSES</h4>
+            <div><a href="#">Agripreneur Lite</a></div>
+            <div><a href="#">Agripreneur Pro</a></div>
+            <div><a href="#">Mega Agripreneur</a></div>
+          </div>
+
+          <div>
+            <h4>ABOUT</h4>
+            <div><a href="#">Our Mission</a></div>
+            <div><a href="#">Our Story</a></div>
+            <div><a href="#">Careers</a></div>
+            <div><a href="#">India–Russia Collaboration</a></div>
+          </div>
+
+          <div>
+            <h4>SUPPORT</h4>
+            <div><a href="#">FAQs</a></div>
+            <div><a href="#">Contact Us</a></div>
+            <div><a href="#">Student Login</a></div>
+          </div>
+
+          <div>
+            <h4>FOLLOW US</h4>
+            <div class="social">
+              <span class="dot">f</span>
+              <span class="dot">𝕏</span>
+              <span class="dot">◎</span>
+              <span class="dot">in</span>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">© 2025 V&amp;V Agro Global LLP. All rights reserved.</div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- (your existing vv48 timer script – untouched) -->
+  <script>
+  (function(){
+    const ROOT = document.getElementById('vv48');
+    if(!ROOT) return;
+    const HOURS    = +ROOT.dataset.hours || 48;
+    const DURATION = HOURS * 60 * 60 * 1000;
+    const KEY      = (ROOT.id || 'vv48') + '_start_at';
+    function setStart(t){
+      try{ localStorage.setItem(KEY, String(t)); }
+      catch(e){
+        document.cookie = KEY + '=' + encodeURIComponent(String(t)) +
+          '; max-age=' + Math.ceil(DURATION/1000) + '; path=/; SameSite=Lax';
+      }
+    }
+    function getCookie(name){
+      if(!document.cookie) return null;
+      const parts = document.cookie.split('; ');
+      for(const part of parts){
+        const eq = part.indexOf('=');
+        if(eq < 0) continue;
+        const k = part.slice(0, eq);
+        if(k === name) return decodeURIComponent(part.slice(eq+1));
+      }
+      return null;
+    }
+    function getStart(){
+      try{
+        const v = localStorage.getItem(KEY);
+        if(v !== null) return Number(v);
+      }catch(e){}
+      const c = getCookie(KEY);
+      return c ? Number(c) : null;
+    }
+    function clearStart(){
+      try{ localStorage.removeItem(KEY); }catch(e){}
+      document.cookie = KEY + '=; max-age=0; path=/; SameSite=Lax';
+    }
+    let start = getStart();
+    if(!start || isNaN(start)){ start = Date.now(); setStart(start); }
+    const end = start + DURATION;
+    const dd = ROOT.querySelector('.dd');
+    const hh = ROOT.querySelector('.hh');
+    const mm = ROOT.querySelector('.mm');
+    const ss = ROOT.querySelector('.ss');
+    const pad = n => String(n).padStart(2,'0');
+    let tmo;
+    function render(){
+      const now  = Date.now();
+      let left   = Math.max(0, end - now);
+      if(left <= 0){
+        if(dd) dd.textContent = '00';
+        if(hh) hh.textContent = '00';
+        if(mm) mm.textContent = '00';
+        if(ss) ss.textContent = '00';
+        return;
+      }
+      const days  = Math.floor(left / 86400000); left -= days  * 86400000;
+      const hours = Math.floor(left / 3600000);  left -= hours * 3600000;
+      const mins  = Math.floor(left / 60000);    left -= mins  * 60000;
+      const secs  = Math.floor(left / 1000);
+      if(dd) dd.textContent = pad(days);
+      if(hh) hh.textContent = pad(hours);
+      if(mm) mm.textContent = pad(mins);
+      if(ss) ss.textContent = pad(secs);
+      clearTimeout(tmo);
+      tmo = setTimeout(render, 1000 - (Date.now() % 1000) + 2);
+    }
+    window.addEventListener('storage', e => { if(e.key === KEY) location.reload(); });
+    window.vv48Reset = () => { clearStart(); location.reload(); };
+    render();
+  })();
+  </script>
+
+  <!-- ===== NEXT BUTTON ACTION: scroll to CTA ===== -->
+  <script>
+    document.getElementById('nextBtn')?.addEventListener('click', () => {
+      document.querySelector('.cta')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+
+  <!-- ===== GOOGLE TRANSLATE (English / Russian pills) + NAV/PILL I18N ===== -->
+  <script>
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ru',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    // Trigger Google Translate language switch
+    function doGTranslate(lang){
+      var select = document.querySelector('select.goog-te-combo');
+      if(!select){ setTimeout(function(){ doGTranslate(lang); }, 350); return; }
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+    }
+
+    // Simple dictionary for navbar + pills
+    const I18N = {
+      en: {
+        testimonials: 'Testimonials ✨',
+        courses: 'Courses',
+        reviews: 'Reviews',
+        faqs: 'FAQs',
+        pillEn: 'English',
+        pillRu: 'русский'
+      },
+    
+    };
+
+    function setLanguageUI(lang){
+      const t = I18N[lang] || I18N.en;
+
+      const menu = document.querySelector('.menu');
+      if(menu){
+        menu.classList.add('notranslate');
+        const links = menu.querySelectorAll('a');
+        if(links[0]) links[0].textContent = t.testimonials;
+        if(links[1]) links[1].textContent = t.courses;
+        if(links[2]) links[2].textContent = t.reviews;
+        if(links[3]) links[3].textContent = t.faqs;
+      }
+
+      const langWrap = document.querySelector('.lang');
+      if(langWrap){
+        langWrap.classList.add('notranslate');
+        const pills = langWrap.querySelectorAll('.pill');
+        if(pills[0]) pills[0].textContent = t.pillEn;
+        if(pills[1]) pills[1].textContent = t.pillRu;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      setLanguageUI('en'); // initial
+
+      var pills = document.querySelectorAll('.lang .pill');
+      pills.forEach(function(p){
+        var txt = p.textContent.trim().toLowerCase();
+        // English pill
+        if(txt.includes('english') || txt.includes('англий')){
+          p.addEventListener('click', function(){
+            setLanguageUI('en');
+            doGTranslate('en');
+          });
+        }
+        // Russian pill
+        if(txt.includes('рус') || txt.includes('russ')){
+          p.addEventListener('click', function(){
+            setLanguageUI('ru');
+            doGTranslate('ru');
+          });
+        }
+      });
+    });
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

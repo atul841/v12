@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Disclaimer • V&V</title>
+
+<style>
+  :root{
+    --container: 1120px;
+    --radius-lg: 20px;
+    --radius-md: 16px;
+    --shadow: 0 8px 28px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
+    --accent:#1faa55; /* emerald heading */
+    --muted:#667085;
+    --ink:#101828;
+    --card:#fff;
+    --divider: rgba(0,0,0,.09);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    color:var(--ink);
+    background:#f5f5f5;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* ===== NAVBAR STRIP (with your provided BG) ===== */
+  .nav-wrap{
+    background:
+      url("./images/65f2d866372c85372dbbb507_BGG.svg") center/cover no-repeat,
+      #0b0b10;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav{
+    max-width:var(--container);
+    margin:0 auto;
+    height:64px;
+    padding:0 18px;
+    display:flex; align-items:center; justify-content:space-between;
+    color:#e9eef5;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; letter-spacing:.4px;
+  }
+  .brand img{ height:28px; width:auto; display:block }
+  .menu{
+    display:flex; gap:22px; align-items:center; opacity:.95;
+    font-size:14px;
+  }
+  .menu a{ color:#e9eef5; text-decoration:none; position:relative }
+  .menu a::after{
+    content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+    background:transparent; transition:background .2s ease;
+  }
+  .menu a:hover::after{ background:rgba(255,255,255,.5) }
+
+  .lang{
+    display:flex; gap:8px;
+  }
+  .pill{
+    background:#ffd84d; color:#191a1c; font-weight:700;
+    padding:6px 10px; border-radius:999px; font-size:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+  }
+
+  /* ===== PAGE WRAP ===== */
+  .wrap{
+    max-width:var(--container);
+    margin:0 auto;
+    padding: 24px 20px 0;
+    background:#fff;
+  }
+  .hero{
+    background:#fff;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding:32px 22px 10px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.06);
+  }
+  .hero h1{
+    margin:6px 0 8px; text-align:center;
+    color:#1c8d46; /* screenshot ka green tone */
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight:800;
+  }
+  .hero p{
+    margin:0 auto; text-align:center; max-width:820px; color:#6b7280;
+    font-size: clamp(14px, 1.6vw, 16px);
+  }
+
+  .divider{
+    height:1px; background:var(--divider); opacity:.6;
+    margin: 18px 0;
+  }
+
+  /* ===== TERMS CARDS ===== */
+  .section{
+    max-width:var(--container);
+    margin:0 auto;
+    padding: 6px 20px 0;
+    background:#fff;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid rgba(16,24,40,.06);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 26px 26px;
+    margin: 16px 0 24px;
+  }
+  .card h3{
+    margin:0 0 8px; color:#1c8d46;
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight:800;
+  }
+  .card p{
+    margin:0; color:#4b5563; font-size: clamp(14px, 1.9vw, 16px);
+  }
+
+  /* ===== PAGER (Previous / Next) — just above footer ===== */
+  .pager-bar{
+    max-width:var(--container);
+    margin: 6px auto;
+    padding: 0 20px;
+    background:#fff;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .pager-btn{
+    display:inline-block; padding:10px 18px; border-radius:999px;
+    background:#1c8d46; color:#fff; text-decoration:none; font-weight:700;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 10px 28px rgba(28,141,70,.28);
+  }
+  .pager-btn:hover{ background:#166534 }
+
+  /* ===== CTA + FOOTER (your purple blob image) ===== */
+  .cta-wrap{
+    margin-top: 24px;
+    background: #100e1b;
+  }
+  .cta-bg{
+    /* Use the provided footer image */
+    background: url("./images/bgimage1.png") center/cover no-repeat;
+  }
+  .cta{
+    max-width:var(--container);
+    margin:0 auto;
+    padding: 54px 20px 82px;
+    text-align:center; color:#f0ecff;
+  }
+  .cta h2{
+    margin:0 0 10px; font-weight:800;
+    font-size: clamp(22px, 3vw, 34px);
+  }
+  .cta p.small{
+    margin:0 auto; max-width:820px; color:#cfd2ff; opacity:.92;
+  }
+  .cta .btn{
+    display:inline-block; margin-top:18px; padding:10px 18px;
+    border-radius:999px; font-weight:700; text-decoration:none;
+    background:#1c8d46; color:#fff; border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 10px 32px rgba(28,141,70,.34);
+  }
+
+  .footer{
+    max-width:var(--container); margin:0 auto; padding: 0 20px 18px;
+    color:#d9dbff; font-size:13px;
+  }
+  .footer-grid{
+    display:grid; grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr; gap:20px;
+  }
+  .footer h4{ margin:0 0 10px; font-size:13px; opacity:.9 }
+  .footer a{ color:#e9eaff; text-decoration:none; opacity:.85 }
+  .social{ display:flex; gap:10px; align-items:center }
+  .dot{
+    width:28px; height:28px; border-radius:50%; display:inline-grid; place-items:center;
+    background: rgba(255,255,255,.12);
+  }
+  .copyright{
+    text-align:center; opacity:.8; margin-top:10px; padding-bottom:6px;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 1024px){
+    :root{ --container: 920px }
+    .footer-grid{ grid-template-columns: 1.2fr 1fr 1fr; row-gap:22px }
+  }
+  @media (max-width: 768px){
+    :root{ --container: 680px }
+    .nav{ height:58px }
+    .menu{ display:none }               /* mobile: hide center menu like screenshot */
+    .lang .pill{ padding:6px 9px }
+    .card{ padding:20px }
+    .cta{ padding: 44px 16px 64px }
+  }
+  @media (max-width: 480px){
+    :root{ --container: 520px }
+    .nav{ padding:0 12px }
+    .hero{ padding:24px 16px 8px }
+    .card{ padding:16px 14px; border-radius: var(--radius-md) }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+
+<body style="background-color: white;">
+    <div id="google_translate_element"></div>
+
+  <!-- NAVBAR WITH PROVIDED BACKGROUND -->
+  <header class="nav-wrap">
+    <div class="nav">
+      <div class="brand">
+        <!-- optional logo image -->
+        <!-- <img src="./images/vv-logo.png" alt="V&V"> -->
+        <img src="./images/logo.png" alt="" style="width: 80px; height: 40px;">
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html">Testimonials ✨</a>
+        <a href="index.html">Courses</a>
+        <a href="index.html">Reviews</a>
+        <a href="index.html">FAQs</a>
+      </nav>
+
+      <div class="lang">
+        <span class="pill">English</span>
+        <span class="pill">русский</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main>
+    <div class="wrap hero">
+      <h1 style="font-weight: 500;">Disclaimer</h1>
+      <p>Last updated: 15/06/2025 ( DD/MM/YYYY )</p>
+    </div>
+
+    <div class="wrap">
+      <div class="divider"></div>
+
+      <section class="section">
+        <article class="card">
+          <h3 style="font-weight: 600;">1. Introduction</h3>
+          <p>The information provided by V &amp; V AGRO GLOBAL LLP (“Company,” “we,” “our,” “us”) on
+www.vandvagro.com (the “Site”) is for general informational purposes only. All information
+on the Site is provided in good faith; however, we make no representation or warranty of
+any kind, express or implied, regarding the accuracy, adequacy, validity, reliability,
+availability, or completeness of any information on the Site. <br> <br>
+Under no circumstance shall we have any liability to you for any loss or damage of any kind
+incurred as a result of the use of the Site or reliance on any information provided on the
+Site. Your use of the Site and your reliance on any information on the Site is solely at your
+own risk.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">2. External Links Disclaimer</h3>
+          <p>The site may contain (or you may be directed to) links to other websites or content
+belonging to or originating from third parties. Such external links are not investigated,
+monitored, or checked for accuracy, adequacy, validity, reliability, availability, or
+completeness by V &amp; V. <br> <br>
+We do not warrant, endorse, guarantee, or assume responsibility for the accuracy or
+reliability of any information offered by third-party websites linked through the Site or any
+website or feature linked in any banner or advertising. We will not be a party to or in any
+way responsible for monitoring any transaction between you and third-party providers of
+products or services.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">3. Professional Disclaimer</h3>
+          <p>The Site does not contain financial, legal, medical, or other professional advice. The
+information is provided for general informational and educational purposes and is not a
+substitute for professional advice. Accordingly, you should consult an appropriate
+professional before taking any action based on the information on the Site.</p>
+        </article>
+
+
+        <article class="card">
+          <h3 style="font-weight: 600;">4. Testimonials &amp; Earnings Disclaimer</h3>
+          <p>The Site may contain testimonials and examples by users. These reflect real-life
+experiences and opinions, but results are personal and may not reflect the typical outcomes
+for all users. There is no guarantee that you will achieve the same or similar results. Your
+
+success depends on many factors including your background, dedication, effort, and other
+variables.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">5. Affiliate &amp; Payment Disclaimer</h3>
+          <p>From time to time, the Site may include affiliate links, through which we may receive a
+commission for purchases made via those links. This does not affect the price you pay. <br> <br>
+All payments for our services/products must only be made via official channels as specified
+by us. V &amp; V AGRO GLOBAL LLP does not authorize any individual to collect payments
+outside those official channels.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">6. Errors &amp; Omissions Disclaimer</h3>
+          <p>While we strive to ensure that the information on this Site is obtained from reliable sources,
+V &amp; V AGRO GLOBAL LLP is not responsible for any errors, omissions, or for the results
+obtained from the use of such information. All information on this Site is provided “as is,”
+with no guarantee of completeness, accuracy, timeliness, or of results.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">7. Logos, Trademarks &amp; Third-Party Content</h3>
+          <p>All logos, trademarks, or brand names appearing on the Site are the property of their
+respective owners. Their inclusion does not imply endorsement by V &amp; V AGRO GLOBAL
+LLP. <br> <br>
+Guest content and views expressed by contributors do not necessarily represent the views
+of V &amp; V AGRO GLOBAL LLP or its staff.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">8. Ad &amp; Advertising Content</h3>
+          <p>We may use third-party advertising companies to serve ads when you use the Site. These
+companies may use information about your visits to our Site and other websites to provide
+advertisements about goods and services of interest to you. V &amp; V AGRO GLOBAL LLP does
+not control the ads&#39; content and is not responsible for them.</p>
+        </article>
+
+        <article class="card">
+          <h3 style="font-weight: 600;">9. Liability Limitation</h3>
+          <p>To the maximum extent permitted by applicable law, in no event shall V &amp; V, its affiliates,
+officers, directors, employees, or agents be liable to you or any third party for any direct,
+indirect, incidental, special, consequential, or punitive damages arising out of your access to,
+use of, or inability to use the Site or reliance on any information provided on the Site. <br> 
+<br>
+11. Fair Use Disclaimer <br> <br>
+
+All copyrighted material on this Site is used in good faith under the fair use principle for
+educational and informational purposes. If you are a copyright owner and believe your
+rights are being infringed, please contact us for prompt resolution. <br> <br>
+12. Personal Responsibility <br> <br>
+You acknowledge that any reliance on information provided on this Site is at your own risk,
+and you are solely responsible for your actions, outcomes, and decisions. <br> <br>
+13. Interpretation Disclaimer <br> <br>
+V &amp; V AGRO GLOBAL LLP shall not be held responsible for how users interpret or apply the
+information provided on this Site. Outcomes may vary depending on individual
+circumstances. <br> <br>
+14. Guest &amp; Contributor Content <br> <br>
+Opinions expressed by guest writers, contributors, or users are solely their own and do not
+represent advice or opinions of V &amp; V AGRO GLOBAL LLP.
+
+</p>
+        </article>
+
+         <article class="card">
+          <h3 style="font-weight: 600;">10. Contact Us</h3>
+          <p>Email: hello@vandvagro.com <br> <br>
+
+Acknowledgement: <br>
+By using or accessing this Site, you acknowledge that you have read, understood, and agree
+to be bound by the above Disclaimer.</p>
+        </article>
+      </section>
+    </div>
+
+    <!-- ===== PREVIOUS / NEXT (just above footer) ===== -->
+    
+
+    <!-- CTA + FOOTER WITH PROVIDED FOOTER IMAGE -->
+    <section class="cta-wrap cta-bg">
+      <div class="cta">
+        <h2>Ready to grow with us?</h2>
+        <p class="small">If you’re interested in learning, earning and transforming your future with V&amp;V, one of our advisors will guide you. have
+read, understood, and agree to be bound by these Terms &amp; Conditions.</p>
+        <a class="btn" href="#get-started">Get started</a>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <img src="./images/logo.png" alt="" style="width: 130px; height: 60px;">
+          </div>
+
+          <div>
+            <h4>COURSES</h4>
+            <div><a href="#">Agripreneur Lite</a></div>
+            <div><a href="#">Agripreneur Pro</a></div>
+            <div><a href="#">Mega Agripreneur</a></div>
+          </div>
+
+          <div>
+            <h4>ABOUT</h4>
+            <div><a href="#">Our Mission</a></div>
+            <div><a href="#">Our Story</a></div>
+            <div><a href="#">Careers</a></div>
+            <div><a href="#">India–Russia Collaboration</a></div>
+          </div>
+
+          <div>
+            <h4>SUPPORT</h4>
+            <div><a href="#">FAQs</a></div>
+            <div><a href="#">Contact Us</a></div>
+            <div><a href="#">Student Login</a></div>
+          </div>
+
+          <div>
+            <h4>FOLLOW US</h4>
+            <div class="social">
+              <span class="dot">f</span>
+              <span class="dot">𝕏</span>
+              <span class="dot">◎</span>
+              <span class="dot">in</span>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">© 2025 V&amp;V Agro Global LLP. All rights reserved.</div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- your existing timer script (kept same) -->
+  <script>
+  (function(){
+    const ROOT = document.getElementById('vv48');
+    if(!ROOT) return;
+
+    const HOURS    = +ROOT.dataset.hours || 48;
+    const DURATION = HOURS * 60 * 60 * 1000;
+    const KEY      = (ROOT.id || 'vv48') + '_start_at';
+
+    function setStart(t){
+      try{ localStorage.setItem(KEY, String(t)); }
+      catch(e){
+        document.cookie = KEY + '=' + encodeURIComponent(String(t)) +
+          '; max-age=' + Math.ceil(DURATION/1000) + '; path=/; SameSite=Lax';
+      }
+    }
+    function getCookie(name){
+      if(!document.cookie) return null;
+      const parts = document.cookie.split('; ');
+      for(const part of parts){
+        const eq = part.indexOf('=');
+        if(eq < 0) continue;
+        const k = part.slice(0, eq);
+        if(k === name) return decodeURIComponent(part.slice(eq+1));
+      }
+      return null;
+    }
+    function getStart(){
+      try{
+        const v = localStorage.getItem(KEY);
+        if(v !== null) return Number(v);
+      }catch(e){}
+      const c = getCookie(KEY);
+      return c ? Number(c) : null;
+    }
+    function clearStart(){
+      try{ localStorage.removeItem(KEY); }catch(e){}
+      document.cookie = KEY + '=; max-age=0; path=/; SameSite=Lax';
+    }
+
+    let start = getStart();
+    if(!start || isNaN(start)){ start = Date.now(); setStart(start); }
+    const end = start + DURATION;
+
+    const dd = ROOT?.querySelector('.dd');
+    const hh = ROOT?.querySelector('.hh');
+    const mm = ROOT?.querySelector('.mm');
+    const ss = ROOT?.querySelector('.ss');
+    const pad = n => String(n).padStart(2,'0');
+
+    let tmo;
+    function render(){
+      const now  = Date.now();
+      let left   = Math.max(0, end - now);
+
+      if(left <= 0){
+        if(dd) dd.textContent = '00';
+        if(hh) hh.textContent = '00';
+        if(mm) mm.textContent = '00';
+        if(ss) ss.textContent = '00';
+        return;
+      }
+
+      const days  = Math.floor(left / 86400000); left -= days  * 86400000;
+      const hours = Math.floor(left / 3600000);  left -= hours * 3600000;
+      const mins  = Math.floor(left / 60000);    left -= mins  * 60000;
+      const secs  = Math.floor(left / 1000);
+
+      if(dd) dd.textContent = pad(days);
+      if(hh) hh.textContent = pad(hours);
+      if(mm) mm.textContent = pad(mins);
+      if(ss) ss.textContent = pad(secs);
+
+      clearTimeout(tmo);
+      tmo = setTimeout(render, 1000 - (Date.now() % 1000) + 2);
+    }
+
+    window.addEventListener('storage', e => { if(e.key === KEY) location.reload(); });
+    window.vv48Reset = () => { clearStart(); location.reload(); };
+
+    render();
+  })();
+  </script>
+
+  <!-- pager actions (Previous = top; Next = CTA) -->
+  <script>
+    document.getElementById('prevBtn')?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.getElementById('nextBtn')?.addEventListener('click', () => {
+      document.querySelector('.cta')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+
+  <script>
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ru',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    // Trigger Google Translate language switch
+    function doGTranslate(lang){
+      var select = document.querySelector('select.goog-te-combo');
+      if(!select){ setTimeout(function(){ doGTranslate(lang); }, 350); return; }
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+    }
+
+    // Simple dictionary for navbar + pills
+    const I18N = {
+      en: {
+        testimonials: 'Testimonials ✨',
+        courses: 'Courses',
+        reviews: 'Reviews',
+        faqs: 'FAQs',
+        pillEn: 'English',
+        pillRu: 'русский'
+      },
+    
+    };
+
+    function setLanguageUI(lang){
+      const t = I18N[lang] || I18N.en;
+
+      const menu = document.querySelector('.menu');
+      if(menu){
+        menu.classList.add('notranslate');
+        const links = menu.querySelectorAll('a');
+        if(links[0]) links[0].textContent = t.testimonials;
+        if(links[1]) links[1].textContent = t.courses;
+        if(links[2]) links[2].textContent = t.reviews;
+        if(links[3]) links[3].textContent = t.faqs;
+      }
+
+      const langWrap = document.querySelector('.lang');
+      if(langWrap){
+        langWrap.classList.add('notranslate');
+        const pills = langWrap.querySelectorAll('.pill');
+        if(pills[0]) pills[0].textContent = t.pillEn;
+        if(pills[1]) pills[1].textContent = t.pillRu;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      setLanguageUI('en'); // initial
+
+      var pills = document.querySelectorAll('.lang .pill');
+      pills.forEach(function(p){
+        var txt = p.textContent.trim().toLowerCase();
+        // English pill
+        if(txt.includes('english') || txt.includes('англий')){
+          p.addEventListener('click', function(){
+            setLanguageUI('en');
+            doGTranslate('en');
+          });
+        }
+        // Russian pill
+        if(txt.includes('рус') || txt.includes('russ')){
+          p.addEventListener('click', function(){
+            setLanguageUI('ru');
+            doGTranslate('ru');
+          });
+        }
+      });
+    });
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
