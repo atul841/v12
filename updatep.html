@@ -434,7 +434,7 @@ Address:  <br>
 101, Pratap Nagar, Mayur Vihar, Phase 1, East Delhi, East Delhi, East Delhi, Delhi,
 India, 110091 <br> <br>
 
-Acknowledgement:
+Acknowledgement: <br>
 By enrolling in or accessing any of our courses or services, you acknowledge that you</p>
         </article>
       </section>
@@ -443,7 +443,7 @@ By enrolling in or accessing any of our courses or services, you acknowledge tha
     
 
     <!-- CTA + FOOTER WITH PROVIDED FOOTER IMAGE -->
-   <footer class="vv-footer" style="background-image: url(./images/bgimage1.png);">
+    <footer class="vv-footer" style="background-image: url(./images/bgimage1.png);">
   <!-- CTA -->
   <div class="vv-cta">
     <h2 style="color: white; font-weight: 700;">Ready to grow with us?</h2>
@@ -472,7 +472,7 @@ By enrolling in or accessing any of our courses or services, you acknowledge tha
         <li><a href="#"style="font-size: 14.5px;">Our Mission</a></li>
         <li><a href="#"style="font-size: 14.5px;">Our Story</a></li>
         <li><a href="#"style="font-size: 14.5px;">Careers</a></li>
-        <li><a href="#"style="font-size: 14.5px; white-space:nowrap; ">India–Russia Collaboration</a></li>
+        <li><a href="#"style="font-size: 14.5px; ">India–Russia Collaboration</a></li>
       </ul>
     </div>
 
@@ -488,7 +488,7 @@ By enrolling in or accessing any of our courses or services, you acknowledge tha
     <div class="col">
       <h4>LEGAL</h4>
       <ul>
-        <li><a href="updatep.html"style="font-size: 14.5px; white-space:nowrap; ">Terms &amp; Conditions</a></li>
+        <li><a href="updatep.html"style="font-size: 14.5px;white-space:nowrap; ">Terms &amp; Conditions</a></li>
          <li><a href="disclemer.html"style="font-size: 14.5px;">Disclaimer</a></li>
           <li><a href="licence.html"style="font-size: 14.5px;">End User License</a></li>
            <li><a href="refund.html"style="font-size: 14.5px;">Refund</a></li>
@@ -650,6 +650,54 @@ By enrolling in or accessing any of our courses or services, you acknowledge tha
     .social .icons a{ width:38px; height:38px; font-size:15px; }
     .vv-copy{ padding-bottom:28px; }
   }
+
+
+  @media (max-width: 640px){
+  /* One column + center all columns */
+  .vv-wrap{
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* Center headings + lists for every col (brand & social included) */
+  .vv-wrap .col{
+    width: 100%;
+    text-align: center !important;
+  }
+
+  /* Make UL full-center (override earlier inline-block/left rules) */
+  .vv-wrap .col ul{
+    display: block !important;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center !important;
+  }
+
+  /* Neat spacing and no bullets */
+  .vv-wrap .col li{
+    list-style: none;
+    margin: 8px 0;
+  }
+
+  /* Allow long links to wrap (fixes ABOUT’s last item) */
+  .vv-wrap .col a{
+    white-space: normal !important;
+  }
+
+  /* Brand logo centered */
+  .vv-wrap .brand img{
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Social icons row centered */
+  .vv-wrap .social .icons{
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+
 </style>
   </main>
 
