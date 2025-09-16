@@ -1160,8 +1160,8 @@ a,
 
 /* Icons: exact size + proper fit (no distortion) */
 .footer-features .feature img{
-  width: 40px !important;
-  height: 57px !important;
+  width: 70px !important;
+  height: 61px !important;
   display: block;
   margin-bottom: 2px;
 
