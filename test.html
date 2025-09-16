@@ -1,199 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>48h Per-User Countdown</title>
-
-  <style>
-    :root{
-      --accent: #22c55e;               /* brand green */
-      --accent-bg: rgba(34,197,94,.12);
-      --expired: #f43f5e;              /* red */
-      --expired-bg: rgba(244,63,94,.12);
-    }
-
-    /* page demo shell (optional) */
-    body{
-      margin:0; padding:24px;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:#0b0f14; color:#e5f2ea;
-      display:grid; place-items:center;
-      min-height: 100dvh;
-    }
-
-    /* ===== Timer ===== */
-    .vv48-timer{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:14px;
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-weight: 700;
-      line-height: 1;
-      box-shadow: 0 8px 24px rgba(0,0,0,.22), inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-    .vv48-timer strong{
-      font-weight: 800;
-      letter-spacing:.2px;
-    }
-    .vv48-timer .block{
-      display:inline-flex; gap:6px; align-items: baseline;
-    }
-    .vv48-timer .val{
-      min-width: 2ch;
-      text-align: center;
-      font-variant-numeric: tabular-nums;
-      font-size: clamp(18px, 4vw, 28px);
-    }
-    .vv48-timer .lbl{
-      font-size: 12px; opacity:.85; font-weight:600;
-    }
-    .vv48-sep{ opacity:.35; padding:0 4px; }
-
-    /* expired state */
-    .vv48-timer.vv-expired{
-      background: var(--expired-bg);
-      color: var(--expired);
-    }
-
-    /* small helper row under timer (optional) */
-    .vv48-help{
-      margin-top:10px; font-size:12px; opacity:.7; text-align:center;
-    }
-
-    /* responsive container */
-    .wrap{ text-align:center; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer UI</title>
+ 
 </head>
 <body>
-  <div class="wrap">
-    <!-- ===== Timer Markup ===== -->
-    <div
-      class="vv48-timer"
-      id="vv48"
-      data-hours="48"            
-      aria-live="polite"
-      aria-label="Offer countdown timer"
-    >
-      <strong>Offer ends in</strong>
-      <span class="vv48-sep">•</span>
+<!-- Font Awesome (icons for social) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-      <span class="block">
-        <span class="val dd">00</span><span class="lbl">d</span>
-      </span>
-      <span class="vv48-sep">:</span>
-      <span class="block">
-        <span class="val hh">00</span><span class="lbl">h</span>
-      </span>
-      <span class="vv48-sep">:</span>
-      <span class="block">
-        <span class="val mm">00</span><span class="lbl">m</span>
-      </span>
-      <span class="vv48-sep">:</span>
-      <span class="block">
-        <span class="val ss">00</span><span class="lbl">s</span>
-      </span>
-    </div>
-
-    <!-- demo tip (optional) -->
-    <div class="vv48-help"></div>
+<footer class="vv-footer" style="background-image: url(./images/bgimage1.png);">
+  <!-- CTA -->
+  <div class="vv-cta">
+    <h2 style="color: white;">Ready to grow with us?</h2>
+    <p style="color: white;">If you're interested in learning, earning, and transforming your future with V&V, one of our advisors will guide you.</p>
+    <a href="#get-started" class="vv-btn" style="color: white;">Get started</a>
   </div>
 
-  <script>
-(function(){
-  const ROOT = document.getElementById('vv48');
-  if(!ROOT) return;
+  <!-- Footer content -->
+  <div class="vv-wrap">
+    <div class="col brand">
+      <div class="logo">V&amp;V</div>
+    </div>
 
-  const HOURS    = +ROOT.dataset.hours || 48;
-  const DURATION = HOURS * 60 * 60 * 1000;
-  const KEY      = 'vv48_start_at';
+    <div class="col">
+      <h4>COURSES</h4>
+      <ul>
+        <li><a href="#" style="font-size: 14.5px;">Agripreneur Lite</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Agripreneur Pro</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Mega Agripreneur</a></li>
+      </ul>
+    </div>
 
-  /* ---------- storage helpers (no regex) ---------- */
-  function setStart(t){
-    try{
-      localStorage.setItem(KEY, String(t));
-    }catch(e){
-      // cookie fallback
-      document.cookie = KEY + '=' + encodeURIComponent(String(t))
-        + '; max-age=' + Math.ceil(DURATION/1000)
-        + '; path=/; SameSite=Lax';
+    <div class="col">
+      <h4>ABOUT</h4>
+      <ul>
+        <li><a href="#"style="font-size: 14.5px;">Our Mission</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Our Story</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Careers</a></li>
+        <li><a href="#"style="font-size: 14.5px;white-space:nowrap; ">India–Russia Collaboration</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>SUPPORT</h4>
+      <ul>
+        <li><a href="#"style="font-size: 14.5px;">FAQs</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Contact Us</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Student Login</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>LEGAL</h4>
+      <ul>
+        <li><a href="updatep.html"style="font-size: 14.5px;">Terms &amp; Conditions</a></li>
+         <li><a href="disclemer.html"style="font-size: 14.5px;">Disclaimer</a></li>
+          <li><a href="licence.html"style="font-size: 14.5px;">End User License</a></li>
+           <li><a href="refund.html"style="font-size: 14.5px;">Refund</a></li>
+      </ul>
+    </div>
+
+    <div class="col social">
+      <h4>FOLLOW US</h4>
+      <div class="icons">
+        <a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a aria-label="X" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a aria-label="Instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a aria-label="LinkedIn" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="vv-copy" style="color: white;">© 2025 V&V Agro Global LLP. All rights reserved</div>
+</footer>
+
+<style>
+  .vv-copy{
+  text-align: center !important;
+}
+
+
+  .vv-footer{
+    position: relative;
+    isolation:isolate;
+    color:var(--ink);
+    overflow:hidden;
+    padding-top:64px;
+    background:
+      radial-gradient(1200px 600px at 15% 10%, rgba(255,255,255,.06), transparent 60%),
+      radial-gradient(900px 500px at 85% 20%, rgba(0,0,0,.25), transparent 60%),
+      linear-gradient(90deg, var(--violet-deep) 0%, #3b2376 40%, #2c1a6a 60%, var(--violet-deep) 100%);
+  }
+
+  /* abstract blobs (like screenshot) */
+  .vv-footer::before,
+  .vv-footer::after{
+    content:"";
+    position:absolute; inset:auto -15% -18% -15%;
+    height:70%;
+    background:
+      radial-gradient(58% 70% at 20% 90%, #0e0b1a 0 60%, transparent 62%) 0 100%/60% 70% no-repeat,
+      radial-gradient(60% 80% at 90% 30%, #0e0b1a 0 64%, transparent 66%) 100% 30%/60% 70% no-repeat;
+    opacity:.9;
+    z-index:0;
+  }
+  .vv-footer::before{
+    inset:auto -10% -35% -10%;
+    filter: blur(2px);
+  }
+
+  /* CTA */
+  .vv-cta{
+    text-align:center;
+    max-width:920px;
+    margin:0 auto 40px;
+    padding:0 16px;
+    position:relative;
+    z-index:1;
+  }
+  .vv-cta h2{
+    font-size: clamp(28px, 4vw, 54px);
+    line-height:1.05;
+    margin:0 0 12px;
+    font-weight:800;
+    letter-spacing:.2px;
+  }
+  .vv-cta p{
+    margin:0 auto 20px;
+    max-width:720px;
+    color:var(--muted);
+  }
+  .vv-btn{
+    display:inline-block;
+    padding:12px 22px;
+    background:linear-gradient(180deg, var(--btn), #1fa650);
+    color:#08130a;
+    border-radius:10px;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 0 0 10px rgba(52,199,89,.08), 0 6px 30px rgba(52,199,89,.35);
+    transition: transform .18s ease, box-shadow .2s ease;
+  }
+  .vv-btn:hover{ transform: translateY(-1px); box-shadow:0 0 0 12px rgba(52,199,89,.10), 0 10px 36px rgba(52,199,89,.45)}
+
+  /* Grid */
+  .vv-wrap{
+    position:relative;
+    z-index:1;
+    max-width:1200px;
+    margin:40px auto 28px;
+    padding:0 20px 10px;
+    display:grid;
+    grid-template-columns: 1.1fr repeat(4, 1fr) 1.2fr;
+    gap:28px 40px;
+    align-items:start;
+  }
+
+  .col h4{
+    font-size:12px;
+    letter-spacing:.18em;
+    color:#e9e5ff;
+    margin:0 0 12px;
+  }
+  .col ul{list-style:none; padding:0; margin:0}
+  .col li{margin:10px 0}
+  .col a{color:#e7e7f4; text-decoration:none}
+  .col a:hover{ text-decoration:underline }
+
+  /* brand */
+  .brand .logo{
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size:54px;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:.02em;
+    color:#fff;
+  }
+
+  /* social */
+  .social .icons{ display:flex; gap:14px; }
+  .social .icons a{
+    width:42px; height:42px; border-radius:50%;
+    display:grid; place-items:center;
+    background:rgba(255,255,255,.1);
+    color:#e9e9f7; font-size:16px;
+    border:1px solid rgba(255,255,255,.14);
+    transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .social .icons a:hover{ transform:translateY(-2px); background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.26) }
+
+  /* copyright */
+  .vv-copy{
+    position:relative; z-index:1;
+    padding:18px 22px 36px;
+    color:#b7b7c8;
+    font-size:13px;
+    max-width:1200px; margin:0 auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px){
+    .vv-wrap{
+      grid-template-columns: 1fr 1fr;
+      gap:28px;
     }
+    .brand{ grid-column: 1 / -1; }
   }
-  function getCookie(name){
-    if (!document.cookie) return null;
-    const parts = document.cookie.split('; ');
-    for (const part of parts){
-      const eq = part.indexOf('=');
-      if (eq < 0) continue;
-      const k = part.slice(0, eq);
-      if (k === name){
-        return decodeURIComponent(part.slice(eq + 1));
-      }
+  @media (max-width: 640px){
+    .vv-cta{ margin-bottom: 24px; }
+    .vv-wrap{
+      grid-template-columns: 1fr;
     }
-    return null;
+    .brand .logo{ font-size:42px; }
+    .social .icons a{ width:38px; height:38px; font-size:15px; }
+    .vv-copy{ padding-bottom:28px; }
   }
-  function getStart(){
-    try{
-      const v = localStorage.getItem(KEY);
-      if (v !== null) return Number(v);
-    }catch(e){}
-    const c = getCookie(KEY);
-    return c ? Number(c) : null;
-  }
-  function clearStart(){
-    try{ localStorage.removeItem(KEY); }catch(e){}
-    document.cookie = KEY + '=; max-age=0; path=/; SameSite=Lax';
-  }
+</style>
 
-  /* ---------- timer logic ---------- */
-  let start = getStart();
-  if(!start || isNaN(start)){ start = Date.now(); setStart(start); }
-  const end = start + DURATION;
-
-  const dd = ROOT.querySelector('.dd'),
-        hh = ROOT.querySelector('.hh'),
-        mm = ROOT.querySelector('.mm'),
-        ss = ROOT.querySelector('.ss');
-
-  const pad = n => String(n).padStart(2,'0');
-  let tmo;
-
-  function render(){
-    const now = Date.now();
-    let left = Math.max(0, end - now);
-
-    if(left <= 0){
-      ROOT.classList.add('vv-expired');
-      ROOT.innerHTML = '<strong>Offer</strong><span class="vv48-sep">•</span>Expired';
-      return;
-    }
-
-    const days  = Math.floor(left / 86400000); left -= days  * 86400000;
-    const hours = Math.floor(left / 3600000);  left -= hours * 3600000;
-    const mins  = Math.floor(left / 60000);    left -= mins  * 60000;
-    const secs  = Math.floor(left / 1000);
-
-    if(dd) dd.textContent = pad(days);
-    if(hh) hh.textContent = pad(hours);
-    if(mm) mm.textContent = pad(mins);
-    if(ss) ss.textContent = pad(secs);
-
-    clearTimeout(tmo);
-    tmo = setTimeout(render, 1000 - (Date.now() % 1000) + 2);
-  }
-
-  // cross-tab sync (optional)
-  window.addEventListener('storage', e => { if(e.key === KEY) location.reload(); });
-
-  // expose reset for testing (optional)
-  window.vv48Reset = () => { clearStart(); location.reload(); };
-
-  render();
-})();
-</script>
+  
 
 </body>
 </html>
