@@ -8,6 +8,16 @@
 
 
 <style>
+
+
+/* Hide every Google Translate UI artifact */
+#google_translate_element { position:absolute !important; left:-9999px !important; top:-9999px !important; visibility:hidden !important; }
+.goog-te-banner-frame.skiptranslate { display:none !important; }
+.goog-te-gadget { height:0 !important; overflow:hidden !important; }
+.goog-te-menu-frame, .goog-te-balloon-frame, #goog-gt-tt { display:none !important; }
+body { top:0 !important; } /* prevent page shift */
+.goog-logo-link, .goog-te-gadget span { display:none !important; }
+
   :root{
     --container: 1120px;
     --radius-lg: 20px;
@@ -460,7 +470,7 @@ By enrolling in or accessing any of our courses or services, you acknowledge tha
         <li><a href="#"style="font-size: 14.5px;">Our Mission</a></li>
         <li><a href="#"style="font-size: 14.5px;">Our Story</a></li>
         <li><a href="#"style="font-size: 14.5px;">Careers</a></li>
-        <li><a href="#"style="font-size: 14.5px;white-space:nowrap; ">India–Russia Collaboration</a></li>
+        <li><a href="#"style="font-size: 14.5px; white-space:nowrap; ">India–Russia Collaboration</a></li>
       </ul>
     </div>
 
@@ -476,7 +486,7 @@ By enrolling in or accessing any of our courses or services, you acknowledge tha
     <div class="col">
       <h4>LEGAL</h4>
       <ul>
-        <li><a href="updatep.html"style="font-size: 14.5px;">Terms &amp; Conditions</a></li>
+        <li><a href="updatep.html"style="font-size: 14.5px; white-space:nowrap; ">Terms &amp; Conditions</a></li>
          <li><a href="disclemer.html"style="font-size: 14.5px;">Disclaimer</a></li>
           <li><a href="licence.html"style="font-size: 14.5px;">End User License</a></li>
            <li><a href="refund.html"style="font-size: 14.5px;">Refund</a></li>
@@ -724,80 +734,45 @@ By enrolling in or accessing any of our courses or services, you acknowledge tha
 
   <!-- ===== GOOGLE TRANSLATE (English / Russian pills) + NAV/PILL I18N ===== -->
   <script>
-    function googleTranslateElementInit(){
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,ru',
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
+  // Called by Google script tag at the bottom
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,ru',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
 
-    // Trigger Google Translate language switch
-    function doGTranslate(lang){
-      var select = document.querySelector('select.goog-te-combo');
-      if(!select){ setTimeout(function(){ doGTranslate(lang); }, 350); return; }
-      select.value = lang;
-      select.dispatchEvent(new Event('change'));
-    }
+  // Wait until the language <select> is injected
+  function getGtSelect(cb, tries=0){
+    const sel = document.querySelector('select.goog-te-combo');
+    if (sel) return cb(sel);
+    if (tries > 60) return; // ~6s timeout
+    setTimeout(() => getGtSelect(cb, tries+1), 100);
+  }
 
-    // Simple dictionary for navbar + pills
-    const I18N = {
-      en: {
-        testimonials: 'Testimonials ✨',
-        courses: 'Courses',
-        reviews: 'Reviews',
-        faqs: 'FAQs',
-        pillEn: 'English',
-        pillRu: 'русский'
-      },
-    
-    };
+  // Trigger translation without showing Google UI
+  function switchLang(langCode){
+    getGtSelect((sel)=>{
+      if (sel.value === langCode) return;
+      sel.value = langCode;
+      // fire both native & legacy events for widest support
+      sel.dispatchEvent(new Event('change'));
+      if (typeof sel.fireEvent === 'function') sel.fireEvent('onchange');
+    });
+  }
 
-    function setLanguageUI(lang){
-      const t = I18N[lang] || I18N.en;
-
-      const menu = document.querySelector('.menu');
-      if(menu){
-        menu.classList.add('notranslate');
-        const links = menu.querySelectorAll('a');
-        if(links[0]) links[0].textContent = t.testimonials;
-        if(links[1]) links[1].textContent = t.courses;
-        if(links[2]) links[2].textContent = t.reviews;
-        if(links[3]) links[3].textContent = t.faqs;
-      }
-
-      const langWrap = document.querySelector('.lang');
-      if(langWrap){
-        langWrap.classList.add('notranslate');
-        const pills = langWrap.querySelectorAll('.pill');
-        if(pills[0]) pills[0].textContent = t.pillEn;
-        if(pills[1]) pills[1].textContent = t.pillRu;
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function(){
-      setLanguageUI('en'); // initial
-
-      var pills = document.querySelectorAll('.lang .pill');
-      pills.forEach(function(p){
-        var txt = p.textContent.trim().toLowerCase();
-        // English pill
-        if(txt.includes('english') || txt.includes('англий')){
-          p.addEventListener('click', function(){
-            setLanguageUI('en');
-            doGTranslate('en');
-          });
-        }
-        // Russian pill
-        if(txt.includes('рус') || txt.includes('russ')){
-          p.addEventListener('click', function(){
-            setLanguageUI('ru');
-            doGTranslate('ru');
-          });
-        }
+  // Hook pills
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.lang .pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const lang = pill.dataset.lang || 'en';
+        switchLang(lang);
       });
     });
-  </script>
+  });
+</script>
+
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
