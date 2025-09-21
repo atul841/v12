@@ -206,68 +206,51 @@ html, body{ overflow-x:hidden; }
     top: 99px;
     left: 70px;
 }
+.gif4{ 
+    width: 240px;
+    height: 235px;
+    position: relative;
+    top: 79px;
+    left: -530px;
+}
 
 /* butoon */
 
-/* LIVE button (minimal) */
-.live-btn{
-  position:relative; overflow:hidden; cursor:pointer; border:none;
-  padding:12px 28px 12px 42px;          /* left side space for ripple */
-  border-radius:999px; background:#d62828; color:#fff;
-  font:700 14px/1.1 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-  letter-spacing:.08em; text-transform:uppercase;
-  transition: background .2s ease, transform .08s ease;
-}
-.live-btn:hover{ background:#b81f1f; }
-.live-btn:active{ transform: translateY(1px) scale(.99); }
-.live-label{ position:relative; z-index:2; }
-
-/* Left-side, slightly upper ripple dot */
-.ripple{
-  position:absolute; width:24px; height:24px; left:16px; top:50%;
-  transform: translateY(-62%);          /* thoda upar shift */
-  display:grid; place-items:center; z-index:1; pointer-events:none;
-}
-
-/* Center dot */
-.core{
-  width:10px; height:10px; border-radius:50%; background:#ff4545;
-  box-shadow:0 0 0 2px rgba(255,255,255,.85) inset;
-  animation: core-blink .7s infinite ease-in-out;
-}
-@keyframes core-blink{
-  0%,100%{ opacity:1 }
-  50%    { opacity:.35 }
-}
-
-/* Concentric waves */
-.ring{
-  position:absolute; inset:0; border-radius:999px;
-  border:2px solid rgba(255,255,255,.65);
-  transform: translateZ(0) scale(.3);
-  opacity:0;
-}
-.ring.r1{ animation: ripple 1.4s linear infinite; }
-.ring.r2{ animation: ripple 1.4s linear infinite; animation-delay:.7s; }
-
-@keyframes ripple{
-  0%   { transform: scale(.3);  opacity:.9; }
-  70%  { transform: scale(1.35); opacity:.15; }
-  100% { transform: scale(1.5); opacity:0; }
-}
-
-/* Optional: respect reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .core{ animation:none }
-  .ring{ animation:none; opacity:.25; transform:scale(1) }
-}
-
-.live-label a[nav-link="active"]{
-  color: inherit;
-  text-decoration: none;
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  cursor: inherit;                 /* same cursor as parent/button */
+/* inline LIVE badge with pulsing dot */
+.live-inline{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#d62828;                 /* text color (change if needed) */
   -webkit-tap-highlight-color: transparent;
 }
+
+
+
+/* red dot with infinite ripple */
+.live-dot{
+  width:10px; height:10px; border-radius:50%;
+  background:#ff3b3b;
+  position:relative;
+}
+.live-dot::after{
+  content:"";
+  position:absolute; inset:0; border-radius:50%;
+  box-shadow: 0 0 0 0 rgba(255,59,59,.65);
+  animation: live-ring 1.1s infinite ease-out;   /* infinite loop */
+}
+
+/* hover → faster ripple */
+.live-inline:hover .live-dot::after{
+  animation: live-ring .6s infinite ease-out;
+}
+
+@keyframes live-ring{
+  0%   { box-shadow: 0 0 0 0   rgba(255,59,59,.65); }
+  70%  { box-shadow: 0 0 0 8px rgba(255,59,59,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(255,59,59,0);   }
+}
+
+
+
+
