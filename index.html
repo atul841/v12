@@ -82,13 +82,77 @@
 body.scrolled .section_navbar{
   background: linear-gradient(90deg, #0f1114 0%, #ffffff 120%) !important;
   box-shadow: 0 6px 18px rgba(0,0,0,.18);
-}
+} 
 
 /* Sticky ke common blockers ko avoid karein */
 .section_navbar, .section_navbar * { /* optional, safe */
   will-change: transform;
 }
 
+
+/* LIVE button (minimal) */
+.live-btn{
+  position:relative; overflow:hidden; cursor:pointer; border:none;
+  padding:12px 28px 12px 42px;          /* left side space for ripple */
+  border-radius:999px; background:#d62828; color:#fff;
+  font:700 14px/1.1 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  letter-spacing:.08em; text-transform:uppercase;
+  transition: background .2s ease, transform .08s ease;
+}
+.live-btn:hover{ background:#b81f1f; }
+.live-btn:active{ transform: translateY(1px) scale(.99); }
+.live-label{ position:relative; z-index:2; }
+
+/* Left-side, slightly upper ripple dot */
+.ripple{
+  position:absolute; width:24px; height:24px; left:16px; top:50%;
+  transform: translateY(-62%);          /* thoda upar shift */
+  display:grid; place-items:center; z-index:1; pointer-events:none;
+}
+
+/* Center dot */
+.core{
+  width:10px; height:10px; border-radius:50%; background:#ff4545;
+  box-shadow:0 0 0 2px rgba(255,255,255,.85) inset;
+  animation: core-blink .7s infinite ease-in-out;
+}
+@keyframes core-blink{
+  0%,100%{ opacity:1 }
+  50%    { opacity:.35 }
+}
+
+/* Concentric waves */
+.ring{
+  position:absolute; inset:0; border-radius:999px;
+  border:2px solid rgba(255,255,255,.65);
+  transform: translateZ(0) scale(.3);
+  opacity:0;
+}
+.ring.r1{ animation: ripple 1.4s linear infinite; }
+.ring.r2{ animation: ripple 1.4s linear infinite; animation-delay:.7s; }
+
+@keyframes ripple{
+  0%   { transform: scale(.3);  opacity:.9; }
+  70%  { transform: scale(1.35); opacity:.15; }
+  100% { transform: scale(1.5); opacity:0; }
+}
+
+/* Optional: respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .core{ animation:none }
+  .ring{ animation:none; opacity:.25; transform:scale(1) }
+}
+
+
+.live-label a[nav-link="active"]{
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: inherit;                 /* same cursor as parent/button */
+  -webkit-tap-highlight-color: transparent;
+}
 </style>
 
 <script>
@@ -116,6 +180,14 @@ body.scrolled .section_navbar{
             <link rel="prefetch" href="/sections"><a href="/#pricing" class="navbar_link-text" style="font-size: 17px;">Courses</a><a
               href="/#pricing" class="navbar_link-text" style="font-size: 17px;">Reviews</a><a href="/#faqs" class="navbar_link-text" style="font-size: 17px;">FAQs</a>
           </div>
+          <button class="live-btn" aria-live="polite" aria-label="Live is on">
+  <span class="ripple" aria-hidden="true">
+    <span class="core"></span>
+    <span class="ring r1"></span>
+    <span class="ring r2"></span>
+  </span>
+  <span class="live-label"><a href="live.html" nav-link="active">LIVE</a></span>
+</button>
         </div>
         <div id="w-node-f4159e66-6519-c843-b0f9-91c04d398c9a-e21728cd" class="navbar_button-wrap">
 
@@ -179,6 +251,14 @@ body.scrolled .section_navbar{
                       </div>
                     </a><a href="/#pricing" class="navbar_link-text">Courses</a><a href="/#reviews"
                       class="navbar_link-text">Reviews</a><a href="#faqs" class="navbar_link-text">FAQs</a></div>
+                      <button class="live-btn" aria-live="polite" aria-label="Live is on">
+  <span class="ripple" aria-hidden="true">
+    <span class="core"></span>
+    <span class="ring r1"></span>
+    <span class="ring r2"></span>
+  </span>
+  <span class="live-label"><a href="live.html" nav-link="active">LIVE</a></span>
+</button>
                 </div>
 
                 <div class="header_head-wrap">
