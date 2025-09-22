@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Refund Policy • V&V</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+
+<style>
+  :root{
+    --container: 1120px;
+    --radius-lg: 20px;
+    --radius-md: 16px;
+    --shadow: 0 8px 28px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
+    --accent:#1faa55;
+    --muted:#667085;
+    --ink:#101828;
+    --card:#fff;
+    --divider: rgba(0,0,0,.09);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    color:var(--ink);
+    background:#f5f5f5;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* ===== NAVBAR STRIP ===== */
+  .nav-wrap{
+    background:
+      url("") center/cover no-repeat,
+      #0b0b10;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav{
+    max-width:var(--container);
+    margin:0 auto;
+    height:64px;
+    padding:0 18px;
+    display:flex; align-items:center; justify-content:space-between;
+    color:#e9eef5;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px}
+  .brand img{ height:28px; width:auto; display:block }
+  .menu{ display:flex; gap:22px; align-items:center; opacity:.95; font-size:14px }
+  .menu a{ color:#e9eef5; text-decoration:none; position:relative }
+  .menu a::after{ content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:transparent; transition:background .2s ease }
+  .menu a:hover::after{ background:rgba(255,255,255,.5) }
+  .lang{ display:flex; gap:8px }
+  .pill{
+    background:#ffd84d; color:#191a1c; font-weight:700;
+    padding:6px 10px; border-radius:999px; font-size:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2); cursor:pointer;
+  }
+
+  /* ===== PAGE WRAP ===== */
+  .wrap{ max-width:var(--container); margin:0 auto; padding: 24px 20px 0; background:#fff }
+  .hero{ background:#fff; border-radius: 0 0 var(--radius-lg) var(--radius-lg); padding:32px 22px 10px; box-shadow: 0 1px 0 rgba(0,0,0,.06) }
+  .hero h1{ margin:6px 0 8px; text-align:center; color:#1c8d46; font-size: clamp(28px, 3.2vw, 42px); font-weight:500 }
+  .hero p{ margin:0 auto; text-align:center; max-width:820px; color:#6b7280; font-size: clamp(14px, 1.6vw, 16px) }
+  .divider{ height:1px; background:var(--divider); opacity:.6; margin: 18px 0 }
+
+  /* ===== TERMS CARDS ===== */
+  .section{ max-width:var(--container); margin:0 auto; padding: 6px 20px 0; background:#fff }
+  .card{ background:var(--card); border:1px solid rgba(16,24,40,.06); border-radius: 18px; box-shadow: var(--shadow); padding: 26px 26px; margin: 16px 0 24px }
+  .card h3{ margin:0 0 8px; color:#1c8d46; font-size: clamp(18px, 2.2vw, 22px); font-weight:600 }
+  .card p{ margin:0; color:#4b5563; font-size: clamp(14px, 1.9vw, 16px) }
+
+  /* ===== STANDALONE NEXT BUTTON (just above footer, right side) ===== */
+  .next-bar{
+    max-width:var(--container); margin: 6px auto 6px; padding: 0 20px;
+    background:#fff; text-align:right;
+  }
+  .btn-next{
+    display:inline-block; padding:10px 18px; border-radius:999px;
+    background:#1c8d46; color:#fff; text-decoration:none; font-weight:700;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 10px 28px rgba(28,141,70,.28);
+  }
+  .btn-next:hover{ background:#166534 }
+
+  /* ===== CTA + FOOTER ===== */
+  .cta-wrap{ margin-top: 24px; background: #100e1b }
+  .cta-bg{ background: url("./images/bgimage1.png") center/cover no-repeat }
+  .cta{ max-width:var(--container); margin:0 auto; padding: 54px 20px 82px; text-align:center; color:#f0ecff }
+  .cta h2{ margin:0 0 10px; font-weight:800; font-size: clamp(22px, 3vw, 34px) }
+  .cta p.small{ margin:0 auto; max-width:820px; color:#cfd2ff; opacity:.92 }
+  .cta .btn{ display:inline-block; margin-top:18px; padding:10px 18px; border-radius:999px; font-weight:700; text-decoration:none; background:#1c8d46; color:#fff; border:1px solid rgba(255,255,255,.12); box-shadow:0 10px 32px rgba(28,141,70,.34) }
+
+  .footer{ max-width:var(--container); margin:0 auto; padding: 0 20px 18px; color:#d9dbff; font-size:13px }
+  .footer-grid{ display:grid; grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr; gap:20px }
+  .footer h4{ margin:0 0 10px; font-size:13px; opacity:.9 }
+  .footer a{ color:#e9eaff; text-decoration:none; opacity:.85 }
+  .social{ display:flex; gap:10px; align-items:center }
+  .dot{ width:28px; height:28px; border-radius:50%; display:inline-grid; place-items:center; background: rgba(255,255,255,.12) }
+  .copyright{ text-align:center; opacity:.8; margin-top:10px; padding-bottom:6px }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 1024px){
+    :root{ --container: 920px }
+    .footer-grid{ grid-template-columns: 1.2fr 1fr 1fr; row-gap:22px }
+  }
+  @media (max-width: 768px){
+    :root{ --container: 680px }
+    .nav{ height:58px }
+    .menu{ display:none }  /* mobile: hide center menu */
+    .lang .pill{ padding:6px 9px }
+    .card{ padding:20px }
+    .cta{ padding: 44px 16px 64px }
+  }
+  @media (max-width: 480px){
+    :root{ --container: 520px }
+    .nav{ padding:0 12px }
+    .hero{ padding:24px 16px 8px }
+    .card{ padding:16px 14px; border-radius: var(--radius-md) }
+    .footer-grid{ grid-template-columns: 1fr 1fr }
+  }
+
+  /* Hide Google’s default widget visually (we control via pills) */
+  #google_translate_element{ position:absolute; left:-9999px; top:-9999px }
+  .goog-te-banner-frame.skiptranslate{ display:none !important }
+  body{ top:0 !important }
+</style>
+</head>
+
+<body style="background-color: white;">
+  <!-- Google Translate container (hidden via CSS) -->
+ 
+
+  <!-- NAVBAR -->
+  <header class="nav-wrap">
+    <div class="nav">
+      <div class="brand">
+        <a href="index.html">
+          <img src="./images/logo.png" alt="" style="width: 80px; height: 40px;">
+        </a>
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html">Testimonials ✨</a>
+        <a href="index.html">Courses</a>
+        <a href="index.html">Reviews</a>
+        <a href="index.html">FAQs</a>
+      </nav>
+
+      <div class="lang">
+        <span class="pill">English</span>
+        <span class="pill">русский</span>
+      </div>
+    </div>
+  </header>
+<div id="google_translate_element"></div>
+  <!-- PAGE CONTENT -->
+  <main>
+    
+<!-- Updates & Downloads header block -->
+<section class="updates">
+  <div class="u-wrap">
+    <h2 class="u-title" style="font-weight: 400;">Updates &amp; Downloads</h2>
+
+    <p class="u-sub">
+      All files are updated regularly. Latest update:
+      <strong id="uDate">--/--/----</strong>
+    </p>
+
+    <p class="u-note">
+      Policies and offers are subject to change without prior notice—check back regularly for
+      updates, as some discounts and special deals may be available only for a limited time
+    </p>
+  </div>
+</section>
+
+<!-- Next part that  -->
+
+<div class="dl-grid">
+  <figure class="file-card">
+    <img class="image1" src="./images/aboutimage/thillef.gif" alt="thumbnail">
+    <figcaption><strong class="text1" style="font-size: 18px; font-weight: 500;">Content about file</strong></figcaption>
+  </figure>
+
+  <figure class="file-card">
+    <img class="image2" src="./images/aboutimage/thum1.gif" alt="thumbnail">
+    <figcaption ><strong style="font-size: 18px; font-weight: 500;">Content about file</strong></figcaption>
+  </figure>
+</div>
+
+
+
+
+<div class="dl-actions">
+  <!-- LEFT -->
+  <a class=" download dl-combo shift-l" href="pdfmycompany.pdf" download>
+    <span class="dl-circle" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 3v12.2l4.1-4.1 1.4 1.4L12 18.9 6.5 12.5l1.4-1.4L12 15.2V3z"/></svg>
+    </span>
+    <span class="dl-label" style="font-weight: 500; color: #0b0b0b;">DOWNLOAD</span>
+  </a>
+
+  <!-- RIGHT -->
+  <a class="dl-combo shift-r" href="pdfmycompany.pdf" download>
+  <span class="dl-circle" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M12 3v12.2l4.1-4.1 1.4 1.4L12 18.9 6.5 12.5l1.4-1.4L12 15.2V3z"/></svg>
+  </span>
+  <span class="dl-label" style="font-weight:500; color:#0b0b0b;">DOWNLOAD</span>
+</a>
+
+</div>
+
+<style>
+    @media (max-width:768px) {
+        .image1{ 
+            display: none !important;
+        }
+        .text1{ 
+            display: none !important;
+        }
+        .download{ 
+            display: none !important;
+        }
+
+        
+    }
+
+    /* हल्का right shift */
+    .shift-r{ 
+        position: relative;
+        right: 148px;
+    }
+    .shift-l{ 
+        position: relative;
+        right: -168px;
+    }
+
+
+
+
+  :root{ --pink:#ff00a5; --ink:#0b0b0b; }
+
+  /* left + right container */
+  .dl-actions{
+    max-width:1100px; margin:0 auto; padding:10px 16px;
+    display:flex; justify-content:space-between; align-items:center; gap:24px;
+  }
+
+  /* anchor styled as button */
+  .dl-combo{
+    position:relative; display:inline-flex; align-items:center; gap:10px;
+    padding:12px 20px 12px 56px; background:var(--pink); color:var(--ink);
+    border-radius:18px; font-weight:800; letter-spacing:.4px; text-transform:uppercase;
+    box-shadow:0 8px 20px rgba(0,0,0,.12); text-decoration:none; cursor:pointer;
+  }
+  .dl-combo:active{ transform:translateY(1px); }
+
+  /* black circle + arrow */
+  .dl-circle{
+    position:absolute; left:-22px; top:50%; transform:translateY(-50%);
+    width:46px; height:46px; border-radius:50%; background:#111; border:2px solid #fff;
+    display:grid; place-items:center; box-shadow:0 0 0 1px #111 inset;
+  }
+  .dl-circle svg{ width:22px; height:22px; fill:var(--pink); }
+
+  /* mobile: stack full width */
+  @media (max-width:720px){
+    .dl-actions{ flex-direction:column; align-items:stretch; }
+    .dl-combo{ width:100%; justify-content:center; padding-left:64px; }
+    .dl-circle{ left:10px; }
+  }
+</style>
+
+<style>
+  /* wrapper */
+  .dl-grid{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: clamp(20px, 5vw, 80px); /* nice spacing like your mock */
+    padding: 10px 16px;
+  }
+
+  /* card */
+  .file-card{
+    margin: 0;
+    text-align: center;
+  }
+
+  /* same size thumbnails */
+  .file-card img{
+    width: 100%;
+    max-width: 380px;               /* control exact desktop width */
+    aspect-ratio: 16 / 10;          /* keeps both images same size */
+    object-fit: cover;
+    border-radius: 28px;            /* rounded like screenshot */
+    display: block;
+    margin: 0 auto;
+  }
+
+  .file-card figcaption{
+    margin-top: 14px;
+    font-size: 14px;
+    color: #404040;
+  }
+
+  /* Mobile: stack with full width */
+  @media (max-width: 720px){
+    .dl-grid{ grid-template-columns: 1fr; gap: 24px; }
+    .file-card img{ max-width: 100%; }   /* stretch nicely on small screens */
+  }
+</style>
+
+
+<style>
+  :root{
+    --ink:#2b4d30;        /* deep green for title */
+    --muted:#3d4b43;      /* body text */
+    --bg:#ffffff;
+    --ring:rgba(0,0,0,.06);
+  }
+
+  .updates{
+    padding: clamp(20px, 4vw, 36px) 12px;
+  }
+  .u-wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: 18px;
+    box-shadow:
+      0 1px 0 var(--ring) inset,
+      0 10px 30px rgba(0,0,0,.06);
+    padding: clamp(18px, 4vw, 28px) clamp(16px, 4vw, 36px);
+    text-align: center;
+  }
+
+  .u-title{
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: clamp(22px, 3.2vw, 32px);
+    letter-spacing: .2px;
+  }
+
+  .u-sub{
+    margin: 0;
+    color: #111;
+    font-size: clamp(14px, 2.4vw, 18px);
+    line-height: 1.6;
+  }
+  .u-sub strong{ font-weight: 700; }
+
+  .u-note{
+    margin: 10px auto 0;
+    color: var(--muted);
+    font-size: clamp(12px, 2.2vw, 14px);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  /* Optional: tighten on very small screens */
+  @media (max-width:420px){
+    .u-wrap{ border-radius: 14px; }
+  }
+
+
+  /* --- FIX: mobile par right-side space/overflow band --- */
+@media (max-width: 768px){
+  html, body { overflow-x: hidden; }    /* safety */
+
+  /* shift classes ko neutralize karo */
+  .shift-l, .shift-r{
+    position: static !important;
+    right: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+  }
+
+  /* buttons stack full-width */
+  .dl-actions{ flex-direction: column; align-items: stretch; gap: 16px; padding: 10px 12px; }
+  .dl-combo{ width: 100%; justify-content: center; padding-left: 64px; }
+  .dl-circle{ left: 10px; }
+}
+
+</style>
+<script>
+  document.querySelectorAll('.dl-combo').forEach(a=>{
+    a.addEventListener('click', e=>{
+      // अगर external URL है और browser download ignore करे, तो JS से force:
+      if (location.host && new URL(a.href, location.href).host !== location.host) {
+        e.preventDefault();
+        const link = document.createElement('a');
+        link.href = a.href;
+        link.setAttribute('download', a.href.split('/').pop() || 'download.pdf');
+        document.body.appendChild(link); link.click(); link.remove();
+      }
+    });
+  });
+</script>
+
+
+<script>
+  // Put today's date in DD/MM/YYYY using India time
+  const todayIST = new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata' });
+  const dEl = document.getElementById('uDate');
+  if (dEl) dEl.textContent = todayIST;
+</script>
+
+
+  </main>
+
+  
+
+
+
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

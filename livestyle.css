@@ -32,7 +32,7 @@ html, body{ overflow-x:hidden; }
   height: auto !important;
   object-fit: cover;
   z-index: 1;
-  left: 95%;
+  left: -15%;
 }
 
 /* Soft glow behind image (optional, accha lagta hai) */
@@ -189,7 +189,7 @@ html, body{ overflow-x:hidden; }
     height: 250px;
     position: relative;
     top: 115px;
-    left: 20px;
+    left: -420px;
 }
 
 .gif2{ 
@@ -250,6 +250,24 @@ html, body{ overflow-x:hidden; }
   70%  { box-shadow: 0 0 0 8px rgba(255,59,59,0);   }
   100% { box-shadow: 0 0 0 0   rgba(255,59,59,0);   }
 }
+
+
+
+/* ===== Mobile Only Hide ===== */
+@media (max-width: 768px){
+  .vv-wrap{
+    display: none !important;
+  }
+}
+@media (min-width:768px) {
+    .mobile_version{ 
+        display: none !important;
+    }
+    
+    
+}
+
+
 
 
 

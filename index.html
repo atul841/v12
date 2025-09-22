@@ -164,18 +164,26 @@ a[nav-link="active"] *{
 }
 
 
+.vv-btn{
+    display:inline-flex; align-items:center; gap:.6rem;
+    padding:.8rem 1.1rem; border-radius:12px; text-decoration:none;
+    background:#ffe52f; color:#fff; font-weight:600;
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+    border-radius: 23px;
+  }
+  .vv-btn small{
+    font-weight:500; opacity:.9; background:rgba(255,255,255,.18);
+    padding:.2rem .5rem; border-radius:8px;
+  }
+  .vv-btn:active{ transform:translateY(1px); }
 
 
 </style>
 
+
 <script>
 
-(function () {
-  const onScroll = () =>
-    document.body.classList.toggle('scrolled', window.scrollY > 40);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // initial state
-})();
+
 </script>
   <footer class="page-wrapper is--home">
     <nav class="section_navbar" style="background: linear-gradient(45deg, rgb(146,149,146) 50%, #75568f 50%);">
@@ -194,13 +202,19 @@ a[nav-link="active"] *{
               href="/#pricing" class="navbar_link-text" style="font-size: 17px;">Reviews</a>
               <span class="live-inline">
   <span class="live-dot" aria-hidden="true"></span>
-  <span class="live-text" ><a href="live.html" style="color: white; font-weight: 400; font-size: 17px; ">Live Top Ranker</a></span>
+  <span class="live-text" ><a href="live.html" style="color: white; font-weight: 400; font-size: 17px; ">Live Top Rankers</a></span>
 </span>
               <a href="/#faqs" class="navbar_link-text" style="font-size: 17px;">FAQs</a>
           </div>
           
         </div>
         <div id="w-node-f4159e66-6519-c843-b0f9-91c04d398c9a-e21728cd" class="navbar_button-wrap">
+
+
+          <a  class="vv-btn" href="pdf.html" >
+  <span style="color: #000;">Download PDF</span>
+
+</a>
 
           <button class="button is-signup is-rounded w-button" data-gt-lang="en" data-fixed-label="English">
             <span class="notranslate" translate="no">English</span>
@@ -264,7 +278,7 @@ a[nav-link="active"] *{
                       class="navbar_link-text">Reviews</a>
                       <span class="live-inline">
   <span class="live-dot" aria-hidden="true"></span>
-  <span class="live-text" ><a href="live.html" style="color: white; font-weight: 400; font-size: 17px;">Live Top Ranker</a></span>
+  <span class="live-text" ><a href="live.html" style="color: white; font-weight: 400; font-size: 17px;">Live Top Rankers</a></span>
 </span>
                       <a href="#faqs" class="navbar_link-text">FAQs</a></div>
                       
@@ -1690,7 +1704,7 @@ a[nav-link="active"] *{
     try{ localStorage.removeItem(KEY); }catch(e){}
     document.cookie = KEY + '=; max-age=0; path=/; SameSite=Lax';
   }
-
+   
   /* ---- first visit wins ---- */
   let start = getStart();
   if(!start || isNaN(start)){ start = Date.now(); setStart(start); }
@@ -1752,7 +1766,7 @@ a[nav-link="active"] *{
                             <div></div>
                           </div>
                         </div ><a data-ms-price:add="prc_micro-interactions-pro-lifetime-access-bh550t9c"
-                          data-w-id="24b0610e-ce6f-e02c-8058-eb66b9f09aab" href="#"
+                          data-w-id="24b0610e-ce6f-e02c-8058-eb66b9f09aab" href="https://vandv.signaturesoftware.co.in/Auth/UserLogin"
                           class="button-block-27 primary w-inline-block">
                           <div class="button-text-27 is-large is-text-small">Apply Now
                           </div>
@@ -2034,7 +2048,7 @@ a[nav-link="active"] *{
 
                           
                         </div><a data-ms-price:update="prc_mi-pro-annual-vdvh0y18"
-                          data-w-id="24b0610e-ce6f-e02c-8058-eb66b9f09a6f" href="#"
+                          data-w-id="24b0610e-ce6f-e02c-8058-eb66b9f09a6f" href="https://vandv.signaturesoftware.co.in/Auth/UserLogin"
                           class="button-block-27 primary w-inline-block">
 
                           
@@ -2338,6 +2352,7 @@ You’re free to cancel at any time, but once you do, your access to all courses
       <div class="group">
         <div class="title">ABOUT</div>
         <nav class="list">
+          <a href="about.html"style="font-size: 12.5px;">About us</a>
           <a href="#"style="font-size: 12.5px;">Our Mission</a>
           <a href="#"style="font-size: 12.5px;">Our Story</a>
           <a href="#"style="font-size: 12.5px;">Careers</a>

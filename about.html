@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Refund Policy • V&V</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+
+<style>
+  :root{
+    --container: 1120px;
+    --radius-lg: 20px;
+    --radius-md: 16px;
+    --shadow: 0 8px 28px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
+    --accent:#1faa55;
+    --muted:#667085;
+    --ink:#101828;
+    --card:#fff;
+    --divider: rgba(0,0,0,.09);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    color:var(--ink);
+    background:#f5f5f5;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* ===== NAVBAR STRIP ===== */
+  .nav-wrap{
+    background:
+      url("") center/cover no-repeat,
+      #0b0b10;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav{
+    max-width:var(--container);
+    margin:0 auto;
+    height:64px;
+    padding:0 18px;
+    display:flex; align-items:center; justify-content:space-between;
+    color:#e9eef5;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px}
+  .brand img{ height:28px; width:auto; display:block }
+  .menu{ display:flex; gap:22px; align-items:center; opacity:.95; font-size:14px }
+  .menu a{ color:#e9eef5; text-decoration:none; position:relative }
+  .menu a::after{ content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:transparent; transition:background .2s ease }
+  .menu a:hover::after{ background:rgba(255,255,255,.5) }
+  .lang{ display:flex; gap:8px }
+  .pill{
+    background:#ffd84d; color:#191a1c; font-weight:700;
+    padding:6px 10px; border-radius:999px; font-size:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2); cursor:pointer;
+  }
+
+  /* ===== PAGE WRAP ===== */
+  .wrap{ max-width:var(--container); margin:0 auto; padding: 24px 20px 0; background:#fff }
+  .hero{ background:#fff; border-radius: 0 0 var(--radius-lg) var(--radius-lg); padding:32px 22px 10px; box-shadow: 0 1px 0 rgba(0,0,0,.06) }
+  .hero h1{ margin:6px 0 8px; text-align:center; color:#1c8d46; font-size: clamp(28px, 3.2vw, 42px); font-weight:500 }
+  .hero p{ margin:0 auto; text-align:center; max-width:820px; color:#6b7280; font-size: clamp(14px, 1.6vw, 16px) }
+  .divider{ height:1px; background:var(--divider); opacity:.6; margin: 18px 0 }
+
+  /* ===== TERMS CARDS ===== */
+  .section{ max-width:var(--container); margin:0 auto; padding: 6px 20px 0; background:#fff }
+  .card{ background:var(--card); border:1px solid rgba(16,24,40,.06); border-radius: 18px; box-shadow: var(--shadow); padding: 26px 26px; margin: 16px 0 24px }
+  .card h3{ margin:0 0 8px; color:#1c8d46; font-size: clamp(18px, 2.2vw, 22px); font-weight:600 }
+  .card p{ margin:0; color:#4b5563; font-size: clamp(14px, 1.9vw, 16px) }
+
+  /* ===== STANDALONE NEXT BUTTON (just above footer, right side) ===== */
+  .next-bar{
+    max-width:var(--container); margin: 6px auto 6px; padding: 0 20px;
+    background:#fff; text-align:right;
+  }
+  .btn-next{
+    display:inline-block; padding:10px 18px; border-radius:999px;
+    background:#1c8d46; color:#fff; text-decoration:none; font-weight:700;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 10px 28px rgba(28,141,70,.28);
+  }
+  .btn-next:hover{ background:#166534 }
+
+  /* ===== CTA + FOOTER ===== */
+  .cta-wrap{ margin-top: 24px; background: #100e1b }
+  .cta-bg{ background: url("./images/bgimage1.png") center/cover no-repeat }
+  .cta{ max-width:var(--container); margin:0 auto; padding: 54px 20px 82px; text-align:center; color:#f0ecff }
+  .cta h2{ margin:0 0 10px; font-weight:800; font-size: clamp(22px, 3vw, 34px) }
+  .cta p.small{ margin:0 auto; max-width:820px; color:#cfd2ff; opacity:.92 }
+  .cta .btn{ display:inline-block; margin-top:18px; padding:10px 18px; border-radius:999px; font-weight:700; text-decoration:none; background:#1c8d46; color:#fff; border:1px solid rgba(255,255,255,.12); box-shadow:0 10px 32px rgba(28,141,70,.34) }
+
+  .footer{ max-width:var(--container); margin:0 auto; padding: 0 20px 18px; color:#d9dbff; font-size:13px }
+  .footer-grid{ display:grid; grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr; gap:20px }
+  .footer h4{ margin:0 0 10px; font-size:13px; opacity:.9 }
+  .footer a{ color:#e9eaff; text-decoration:none; opacity:.85 }
+  .social{ display:flex; gap:10px; align-items:center }
+  .dot{ width:28px; height:28px; border-radius:50%; display:inline-grid; place-items:center; background: rgba(255,255,255,.12) }
+  .copyright{ text-align:center; opacity:.8; margin-top:10px; padding-bottom:6px }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 1024px){
+    :root{ --container: 920px }
+    .footer-grid{ grid-template-columns: 1.2fr 1fr 1fr; row-gap:22px }
+  }
+  @media (max-width: 768px){
+    :root{ --container: 680px }
+    .nav{ height:58px }
+    .menu{ display:none }  /* mobile: hide center menu */
+    .lang .pill{ padding:6px 9px }
+    .card{ padding:20px }
+    .cta{ padding: 44px 16px 64px }
+  }
+  @media (max-width: 480px){
+    :root{ --container: 520px }
+    .nav{ padding:0 12px }
+    .hero{ padding:24px 16px 8px }
+    .card{ padding:16px 14px; border-radius: var(--radius-md) }
+    .footer-grid{ grid-template-columns: 1fr 1fr }
+  }
+
+  /* Hide Google’s default widget visually (we control via pills) */
+  #google_translate_element{ position:absolute; left:-9999px; top:-9999px }
+  .goog-te-banner-frame.skiptranslate{ display:none !important }
+  body{ top:0 !important }
+</style>
+</head>
+
+<body style="background-color: white;">
+  <!-- Google Translate container (hidden via CSS) -->
+ 
+
+  <!-- NAVBAR -->
+  <header class="nav-wrap">
+    <div class="nav">
+      <div class="brand">
+        <a href="index.html">
+          <img src="./images/logo.png" alt="" style="width: 80px; height: 40px;">
+        </a>
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html">Testimonials ✨</a>
+        <a href="index.html">Courses</a>
+        <a href="index.html">Reviews</a>
+        <a href="index.html">FAQs</a>
+      </nav>
+
+      <div class="lang">
+        <span class="pill">English</span>
+        <span class="pill">русский</span>
+      </div>
+    </div>
+  </header>
+<div id="google_translate_element"></div>
+  <!-- PAGE CONTENT -->
+  <main>
+    <section class="story">
+  <div class="story-box">
+    <div class="story-copy">
+      <h2 class="story-title"style="font-weight: 550; font-size: 50px;">Discover Our Story</h2>
+      <div class="story-kicker">Where Passion Meets Innovation</div>
+
+      <p class="story-text" style="font-size: 18px;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat blanditiis modi assumenda, delectus voluptatem facere velit, commodi qui dignissimos, laboriosam cum distinctio reiciendis odit sequi explicabo nulla dicta vero! Quis, commodi exercitationem nam dolore.
+      </p>
+    </div>
+
+    <div class="story-art">
+      <!-- Change this image path -->
+      <img src="./images/aboutimage/1.gif" alt="Welcome illustration">
+    </div>
+  </div>
+</section>
+
+<section class="mv">
+  <div class="mv-box">
+    <div class="mv-grid">
+      <!-- Left: Mission -->
+      <div class="mv-col">
+        <h3 class="mv-heading" style="font-weight: 650; font-size: 30px;"><span>Our</span> <em>Mission</em></h3>
+        <p class="mv-text" style="font-size: 43px;">
+         <li style="font-size: 18px;" >  <strong>Har Ghar Agripreneur</strong> – turning every household into a hub of agricultural entrepreneurship.</li> <br>
+
+         <li style="font-size: 18px;">  Deliver <strong>world-class interactive learning</strong> through literature, mentorship, and digital tools.</li> <br>
+
+         <li style="font-size: 18px;">  Build a <strong>peer-to-peer marketplace</strong> for agro products, by-products, waste, tools, and services. </li><br>
+
+         <li style="font-size: 18px;">  Enable learners to <strong>achieve financial independence</strong> through our Learn & Earn model.</li>
+        </p>
+      </div>
+
+      <!-- Center divider -->
+      <div class="mv-divider" aria-hidden="true"></div>
+
+      <!-- Right: Vision -->
+      <div class="mv-col">
+        <h3 class="mv-heading" style="font-weight: 650; font-size: 30px;"><span>Our</span> <em>Vision</em></h3>
+        <p class="mv-text">
+          <li style="font-size: 18px;">   Indian youth take pride in agriculture as a modern, wealth-creating career.</li> <br>
+
+          <li style="font-size: 18px;">   Russian and Indian minds collaborate seamlessly, exchanging knowledge and expertise.</li> <br>
+
+          <li style="font-size: 18px;">   V & V evolves into India’s largest agri-community and marketplace, setting global benchmarks in sustainable agriculture and entrepreneurship.</li>
+          <br>
+          <br>  
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="os">
+  <div class="os-panel">
+    <h2 class="os-title" style="font-weight: 650; font-size: 30px;"><span>Our</span> <em>Story</em></h2>
+
+    <div class="os-copy">
+      <p> <strong style="color:#ff7a00;" >Who We Are</strong> <br>
+        V & V is a pioneering <strong>Russian–Indian collaboration</strong> designed to empower the next generation of <strong>agripreneurs</strong>. We bring together Russia’s depth of research and India’s entrepreneurial energy to create a unique ecosystem where agriculture, technology, and entrepreneurship merge. <br>
+
+       Our name itself reflects our roots: <br>
+
+       <li>  <strong>“Vladimir”</strong> (Russian for great power) stands for strength and innovation.</li> <br>
+
+       <li> <strong>“Vishnu”</strong> (Sanskrit for the all-pervasive preserver and protector of the universe) stands for prosperity and continuity.</li> <br>
+
+     Together, they symbolize the collaboration of two powers that will transform the lives of millions of people.
+      </p>
+
+      <p> <strong style="color:#ff7a00;" >Our Journey</strong> <br> 
+        The story of V & V began when our mentor, <strong>Mr. Vishnu,</strong> saw the enormous waste of potential in India’s agriculture sector. While nations across the world were innovating with agro by-products and waste, much of India’s wealth in this field went unnoticed or underutilized. <br> 
+
+        Founded in <strong>2024</strong>, with the guidance of mentors from <strong>En+ Group, Russia’s leading aluminium and hydroelectric power company,</strong> V & V was created as a necessity — to fill the gap with innovation, learning, and <br> entrepreneurship. <br> 
+
+        What started as a vision to regulate agro by-product trade has now grown into a <strong>community-driven movement</strong> reshaping agriculture into a source of wealth and opportunity. <br>
+      </p>
+
+      <p> <strong style="color:#ff7a00;">What Makes Us Different</strong> <br>
+       Unlike traditional educational platforms or agri-traders, V & V combines <br> <strong>learning with earning</strong>. We are: <br>
+
+      <li style="font-size: 18px;"><strong>Early movers</strong> in a space with no real competitors.</li> <br>
+
+      <li style="font-size: 18px;">Backed by a <strong>community-first approach</strong>, ensuring collective growth.</li> <br>
+
+      <li style="font-size: 18px;">Powered by <strong>automation and transparency,</strong> so every member can trust the process.</li>
+
+
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root{
+    --navy:#232a5c;      /* heading navy */
+    --orange:#ff7a00;    /* accent for "Story" */
+    --text:#3d4b57;      /* paragraph color */
+    --panel1:#f7fbff;    /* gradient top */
+    --panel2:#eef6ff;    /* gradient bottom */
+    --ring:rgba(0,0,0,.08);
+    --radius:28px;
+  }
+
+  .os{ padding: clamp(18px, 4vw, 36px) 14px; }
+  .os-panel{
+    max-width: 1200px; margin: 0 auto;
+    background: linear-gradient(180deg, var(--panel1), var(--panel2));
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 10px 30px rgba(0,0,0,.06);
+    padding: clamp(22px, 6vw, 56px);
+  }
+
+  .os-title{
+    margin: 0 0 clamp(10px, 2vw, 16px);
+    text-align: center;
+    font-weight: 800;
+    font-size: clamp(24px, 4.5vw, 40px);
+    letter-spacing: .2px;
+    line-height: 1.15;
+    color: var(--navy);
+  }
+  .os-title span{ color: var(--navy); }
+  .os-title em{ color: var(--orange); font-style: normal; }
+
+  .os-copy{
+    max-width: 980px;   /* inner text width */
+    margin-inline: auto;
+  }
+  .os-copy p{
+    margin: 0 0 clamp(14px, 2.2vw, 22px);
+    color: var(--text);
+    font-size: clamp(14px, 2.1vw, 18px);
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  /* छोटे स्क्रीन पर भी सुंदर दिखे */
+  @media (max-width: 600px){
+    .os-panel{ border-radius: 22px; }
+  }
+</style>
+
+
+<section class="about3">
+  <div class="a3-grid">
+    <!-- Card 1 -->
+    <article class="a3-card">
+      <h3 class="a3-title" style="font-weight: 650; font-size: 30px;"><span>Our </span> <em>Achievements</em></h3>
+      <p class="a3-text" style="font-size: 15px; font-weight: 500;">
+        In a short span, V & V has: <br> <br>
+
+       <li style="font-size: 18px;">  Empowered <strong>5,000+ agripreneurs</strong> across India.</li> <br>
+
+      <li style="font-size: 18px;">   Launched pilot programs for <strong>agro-waste marketplace</strong> transactions.</li> <br>
+
+       <li style="font-size: 18px;"> Built bridges between Indian learners and Russian experts in agriculture.</li> <br>
+
+        <li style="font-size: 18px;"> Earned recognition as a <strong>promising new-age agri-entrepreneurship initiative.</strong></li>
+      </p>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="a3-card">
+      <h3 class="a3-title" style="font-weight: 650; font-size: 30px;"><span>Our</span> <em> Team</em></h3>
+      <p class="a3-text" style="font-size: 18px;">
+       Our core leadership includes <strong>Mr. Vishnu (Founder)</strong>, along with <strong>Ms. Shiwangi ,  Mr. Shivam</strong> and <strong>Mr. Atul</strong>. Together, they are supported by educators, entrepreneurs, and advisors from diverse industries. <br>
+
+      To further strengthen our foundation, V & V works with an <strong>advisory board of scientists, researchers, and PhD scholars</strong> from around the world Like  Dr. Elena Kravtsov – Agri-Biotech Researcher, Dr. Arjun Dev – Agri-Economist, Prof. Michael Howard – Sustainable Farming Systems . Their knowledge and experience ensure that our learners get access to world-class expertise.
+      </p>
+    </article>
+
+    <!-- Card 3 (light blue) -->
+    <article class="a3-card a3-blue">
+      <h3 class="a3-title" style="font-weight: 650; font-size: 30px;"><span>Why Trust </span> <em>Us</em></h3>
+      <p class="a3-text" style="font-size: 15px; font-weight: 600;">
+        At V & V, we don’t just teach — we deliver outcomes. Our learners are promised: <br> <br>
+
+     <li style="font-size: 18px;"> <strong>3x return on learning value</strong> before completing their program.</li> <br>
+
+     <li style="font-size: 18px;">Access to <strong>real-time networking and collaboration opportunities.</strong></li> <br>
+
+      <li style="font-size: 18px;">A transparent, ethical system where <strong>every transaction is accountable.</strong></li> <br>
+
+      <li style="font-size: 18px;">The chance to join a <strong>movement bigger than themselves,</strong> one that creates wealth and empowers society.</li>
+      </p>
+    </article>
+  </div>
+</section>
+<section class="contactWrap">
+  <div class="contactBox">
+    <h2 class="c-title" style="font-weight: 650; font-size: 30px;">
+      Get In Touch with <span class="accent">V&V</span>
+    </h2>
+    <p class="c-sub" style="font-size: 18px;">
+      We believe communication is the key to building strong relationships.
+      Whether you have questions about our tools, products and services,
+      need support, or simply want to share your feedback, we're here to help.
+    </p>
+
+    <div class="c-grid">
+      <!-- Card: Call -->
+      <article class="c-card">
+        <span class="c-ico badge-phone" aria-hidden="true">
+          <!-- phone -->
+          <svg viewBox="0 0 24 24"><path d="M6.6 2h3a1 1 0 0 1 1 1v3.2a1 1 0 0 1-.7.95l-1.9.63a13.9 13.9 0 0 0 6.22 6.22l.63-1.9a1 1 0 0 1 .95-.7H19a1 1 0 0 1 1 1v3a2 2 0 0 1-2.2 2 19 19 0 0 1-8.8-3.8 19 19 0 0 1-3.8-8.8A2 2 0 0 1 6.6 2Z"/></svg>
+        </span>
+        <h3 class="c-h"style="font-weight: 700; font-size: 20px;">Call us</h3>
+        <p class="c-body">
+          <a href="tel:+919431204044">+91-9431204044</a><br>
+          <a href="tel:+919709934950">+91-9709934950</a>
+        </p>
+      </article>
+
+      <!-- Card: Email -->
+      <article class="c-card">
+        <span class="c-ico badge-mail" aria-hidden="true">
+          <!-- mail -->
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+        </span>
+        <h3 class="c-h"style="font-weight: 700; font-size: 20px;">Email Us</h3>
+        <p class="c-body"><a href="mailto:info@finaceindia.com">hello@vandvagro.com</a></p>
+        
+      </article>
+
+      <!-- Card: Visit -->
+      <article class="c-card">
+        <span class="c-ico badge-map" aria-hidden="true">
+          <!-- pin -->
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5Z"/></svg>
+        </span>
+        <h3 class="c-h"style="font-weight: 700; font-size: 20px;">Visit Us</h3>
+        <address class="c-body" style="font-style:normal">
+          B-HUB, Block-A, 5th Floor<br>
+          Maurya Lok Complex, Patna
+        </address>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root{
+    --navy:#232a5c;     /* heading navy */
+    --orange:#ff7a00;   /* accent */
+    --text:#3d4957;     /* body text */
+    --ring:rgba(0,0,0,.12);
+    --panel:#fff;
+    --panelLite:#f5faff; /* outer soft panel gradient end */
+    --radius-lg:28px;
+    --radius-md:20px;
+  }
+
+  .contactWrap{ padding: clamp(18px, 4vw, 36px) 14px; }
+  .contactBox{
+    max-width: 1200px; margin: 0 auto;
+    background: linear-gradient(180deg, #f8fbff, var(--panelLite));
+    border:1px solid rgba(0,0,0,.06);
+    border-radius: var(--radius-lg);
+    padding: clamp(22px, 5vw, 48px);
+    box-shadow: 0 1px 0 rgba(0,0,0,.04) inset;
+    text-align: center;
+  }
+
+  .c-title{
+    margin: 0 0 8px;
+    font-weight: 800;
+    color: var(--navy);
+    font-size: clamp(24px, 4.2vw, 40px);
+    letter-spacing:.2px;
+  }
+  .c-title .accent{ color: var(--orange); }
+
+  .c-sub{
+    margin: 0 auto clamp(18px, 4vw, 30px);
+    color: var(--text);
+    line-height: 1.8;
+    max-width: 900px;
+    font-size: clamp(14px, 2.2vw, 18px);
+  }
+
+  .c-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.5vw, 26px);
+    text-align:left;
+  }
+
+  .c-card{
+    background: var(--panel);
+    border:1px solid rgba(0,0,0,.08);
+    border-radius: var(--radius-md);
+    padding: clamp(18px, 3.2vw, 28px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.06);
+    position: relative;
+    overflow:hidden;
+    transition: box-shadow .25s ease, transform .2s ease;
+  }
+  .c-card:hover{ transform: translateY(-1px); box-shadow: 0 10px 28px rgba(0,0,0,.08); }
+
+  .c-ico{
+    width: 44px; height: 44px; border-radius: 12px;
+    display:grid; place-items:center;
+    margin-bottom: 12px;
+    border:1px solid rgba(0,0,0,.06);
+  }
+  .c-ico svg{ width:22px; height:22px; fill:#4b5bd4; }
+
+  .badge-phone{ background:#e8ffe9; }
+  .badge-mail { background:#eef0ff; }
+  .badge-map  { background:#ffefcf; }
+
+  .c-h{
+    margin: 0 0 6px;
+    font-weight: 800;
+    color: var(--navy);
+    font-size: clamp(18px, 2.6vw, 22px);
+  }
+
+  .c-body{
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(14px, 2.2vw, 18px);
+    line-height: 1.9;
+  }
+  .c-body a{ color: inherit; text-decoration: none; }
+  .c-body a:hover{ text-decoration: underline; }
+
+  .chip{
+    margin-top: 14px;
+    background:#fff; color:#222;
+    border:1px solid var(--ring);
+    border-radius: 12px;
+    padding: 10px 16px;
+    cursor:pointer;
+    box-shadow: 0 1px 0 #fff inset, 0 4px 10px rgba(0,0,0,.06);
+  }
+  .chip:active{ transform: translateY(1px); }
+
+  /* Responsive */
+  @media (max-width: 1050px){
+    .c-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px){
+    .c-grid{ grid-template-columns: 1fr; }
+    .contactBox{ text-align:center; }
+    .c-card{ text-align:left; }
+  }
+
+  /* === Hover highlight for contact cards === */
+.c-card{
+  position: relative;           /* overlay ke liye */
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+/* center glow overlay (hidden by default) */
+.c-card::before{
+  content:"";
+  position:absolute; inset:-25%;
+  background: radial-gradient(360px circle at 50% 50%,
+              rgba(255,122,0,.12), transparent 60%); /* orange tint */
+  opacity:0; transform:scale(.9);
+  transition: opacity .28s ease, transform .35s cubic-bezier(.2,.7,.2,1);
+  pointer-events:none;
+}
+
+/* hover/focus: lift + brighter shadow + subtle border accent */
+@media (hover:hover){
+  .c-card:hover{ transform: translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.10); border-color: rgba(255,122,0,.35); }
+  .c-card:hover::before{ opacity:1; transform:scale(1); }
+}
+
+/* keyboard users ke liye same effect */
+.c-card:focus-within{
+  transform: translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.10);
+  border-color: rgba(255,122,0,.35);
+}
+.c-card:focus-within::before{ opacity:1; transform:scale(1); }
+
+/* icon thoda bounce feel */
+.c-ico svg{ transition: transform .25s ease; }
+@media (hover:hover){
+  .c-card:hover .c-ico svg{ transform: translateY(-2px); }
+}
+
+/* Motion ko respect kare (accessibility) */
+@media (prefers-reduced-motion: reduce){
+  .c-card, .c-ico svg{ transition: none; }
+}
+
+</style>
+
+
+<style>
+  :root{
+    --ink:#1d275e;      /* deep navy */
+    --accent:#ff7a00;   /* orange */
+    --text:#2d3748;     /* body text */
+    --ring:rgba(0,0,0,.08);
+    --panel:#ffffff;    /* white cards */
+    --panelBlue:#eaf4ff;/* light-blue card */
+    --radius:28px;
+  }
+
+  .about3{ padding: clamp(16px, 4vw, 28px) 16px; }
+  .a3-grid{
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.4vw, 28px);
+  }
+
+  .a3-card{
+    background: var(--panel);
+    border:1px solid var(--ring);
+    border-radius: var(--radius);
+    padding: clamp(18px, 3.8vw, 36px);
+    box-shadow: 0 1px 0 rgba(0,0,0,.02) inset;
+  }
+  .a3-blue{ background: var(--panelBlue); }
+
+  .a3-title{
+    margin: 0 0 clamp(10px, 1.8vw, 14px);
+    text-align: center;
+    font-weight: 800;
+    font-size: clamp(22px, 3.2vw, 40px);
+    letter-spacing: .2px;
+    line-height: 1.12;
+    color: var(--ink);
+  }
+  .a3-title span{ color: var(--ink); }
+  .a3-title em{ color: var(--accent); font-style: normal; }
+
+  .a3-text{
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(14px, 2.1vw, 18px);
+    line-height: 1.9;
+    /* matches the spaced look in screenshot */
+    text-align: justify;
+    text-align-last: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 1020px){
+    .a3-grid{ grid-template-columns: 1fr; }
+  }
+</style>
+
+
+<style>
+  :root{
+    --panel:#f4fbff;     /* light blue bg (screenshot vibe) */
+    --ink:#1d275e;       /* deep navy for "Our" */
+    --accent:#ff7a00;    /* orange for "Mission/Vision" */
+    --body:#424a53;      /* paragraph */
+  }
+
+  .mv{ padding: clamp(20px, 4vw, 44px) 16px; }
+  .mv-box{
+    max-width: 1200px; margin: 0 auto;
+    background: var(--panel);
+    border-radius: 28px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.03) inset, 0 8px 28px rgba(0,0,0,.06);
+    padding: clamp(22px, 6vw, 56px);
+  }
+
+  .mv-grid{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* left | divider | right */
+    align-items: center;
+    gap: clamp(16px, 5vw, 80px);
+    text-align: center;
+  }
+
+  .mv-heading{
+    margin: 0 0 10px;
+    font-weight: 800;
+    font-size: clamp(26px, 4.5vw, 44px);
+    line-height: 1.12;
+    letter-spacing: .2px;
+  }
+  .mv-heading span{ color: var(--ink); }
+  .mv-heading em{ color: var(--accent); font-style: normal; }
+
+  .mv-text{
+    margin: 0 auto;
+    max-width: 62ch;
+    color: var(--body);
+    line-height: 1.9;
+    font-size: clamp(14px, 2.2vw, 18px);
+  }
+
+  .mv-divider{
+    width: 2px; height: 96px; border-radius: 2px;
+    background: linear-gradient(180deg, rgba(255,122,0,0),
+                                         var(--accent) 48%,
+                                         rgba(255,122,0,0));
+    justify-self: center;
+  }
+
+  /* Mobile: stack, hide divider */
+  @media (max-width: 900px){
+    .mv-grid{ grid-template-columns: 1fr; gap: 28px; }
+    .mv-divider{ display: none; }
+  }
+  /* --- add to your existing styles --- */
+
+/* prepare card for overlay */
+.a3-card{
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .25s ease;
+}
+
+/* center glow on hover (for white cards) */
+.a3-card::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(420px circle at 50% 50%,
+              rgba(255,122,0,.10), transparent 60%);
+  opacity:0; transition: opacity .25s ease;
+  pointer-events:none;
+}
+
+/* light-blue card gets a bluish glow */
+.a3-card.a3-blue::before{
+  background: radial-gradient(420px circle at 50% 50%,
+              rgba(29,39,94,.12), transparent 60%);
+}
+
+/* on hover: show glow + soft lift */
+.a3-card:hover::before{ opacity:1; }
+.a3-card:hover{
+  box-shadow: 0 10px 28px rgba(0,0,0,.08), 0 1px 0 rgba(0,0,0,.02) inset;
+}
+
+</style>
+
+
+<style>
+  :root{
+    --bg:#f4fbff;          /* light blue card bg (as in screenshot) */
+    --ink:#1d275e;         /* deep navy heading */
+    --accent:#ff7a00;      /* orange subheading */
+    --muted:#5f6e7e;       /* paragraph */
+  }
+
+  .story{ padding: clamp(20px, 4vw, 40px) 16px; }
+  .story-box{
+    max-width: 1200px; margin: 0 auto;
+    background: var(--bg);
+    border-radius: 28px;
+    padding: clamp(20px, 5vw, 56px);
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;   /* text left, art right */
+    align-items: center;
+    gap: clamp(16px, 4vw, 40px);
+    box-shadow: 0 1px 0 rgba(0,0,0,.03) inset, 0 8px 28px rgba(0,0,0,.06);
+  }
+
+  .story-title{
+    color: var(--ink);
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 56px);
+    line-height: 1.1;
+    margin: 0 0 6px;
+    letter-spacing: .2px;
+  }
+  .story-kicker{
+    color: var(--accent);
+    font-weight: 700;
+    font-size: clamp(16px, 2.5vw, 22px);
+    margin-bottom: clamp(10px, 2vw, 16px);
+  }
+  .story-text{
+    color: var(--muted);
+    font-size: clamp(14px, 2.1vw, 18px);
+    line-height: 1.8;
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .story-art img{
+    width: min(520px, 100%);
+    height: auto;
+    display: block;
+    margin-inline: auto;
+    /* optional: slight lift effect like mock */
+    filter: drop-shadow(0 6px 18px rgba(0,0,0,.08));
+  }
+
+  /* Mobile: stack nicely */
+  @media (max-width: 900px){
+    .story-box{ grid-template-columns: 1fr; text-align: left; }
+    .story-art{ order: 2; }      /* image below text (like screenshot vibe) */
+    .story-copy{ order: 1; }
+  }
+</style>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="vv-footer" style="background-image: url(./images/bgimage1.png);">
+  <!-- CTA -->
+  <div class="vv-cta">
+    <h2 style="color: white; font-weight: 700;">Ready to grow with us?</h2>
+    <p style="color: white;">If you're interested in learning, earning, and transforming your future with V&V, one of our advisors will guide you.</p>
+    <a href="#get-started" class="vv-btn" style="color: white;">Get started</a>
+  </div>
+
+  <!-- Footer content -->
+  <div class="vv-wrap">
+    <div class="col brand">
+      <img src="./images/logo.png" alt="" style="width: 100px; height: 50px;">
+    </div>
+
+    <div class="col">
+      <h4>COURSES</h4>
+      <ul>
+        <li><a href="#" style="font-size: 14.5px;">Agripreneur Lite</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Agripreneur Pro</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Mega Agripreneur</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>ABOUT</h4>
+      <ul>
+        <li><a href="#"style="font-size: 14.5px;">Our Mission</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Our Story</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Careers</a></li>
+        <li><a href="#"style="font-size: 14.5px; ">India–Russia Collaboration</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>SUPPORT</h4>
+      <ul>
+        <li><a href="#"style="font-size: 14.5px;">FAQs</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Contact Us</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Student Login</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>LEGAL</h4>
+      <ul>
+        <li><a href="updatep.html"style="font-size: 14.5px;white-space:nowrap; ">Terms &amp; Conditions</a></li>
+         <li><a href="disclemer.html"style="font-size: 14.5px;">Disclaimer</a></li>
+          <li><a href="licence.html"style="font-size: 14.5px;">End User License</a></li>
+           <li><a href="refund.html"style="font-size: 14.5px;">Refund</a></li>
+      </ul>
+    </div>
+
+    <div class="col social">
+      <h4>FOLLOW US</h4>
+      <div class="icons">
+        <a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a aria-label="X" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a aria-label="Instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a aria-label="LinkedIn" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="vv-copy" style="color: white;">© 2025 V&V Agro Global LLP. All rights reserved</div>
+</footer>
+
+<style>
+  .vv-copy{
+  text-align: center !important;
+}
+
+
+  .vv-footer{
+    position: relative;
+    isolation:isolate;
+    color:var(--ink);
+    overflow:hidden;
+    padding-top:64px;
+    background:
+      radial-gradient(1200px 600px at 15% 10%, rgba(255,255,255,.06), transparent 60%),
+      radial-gradient(900px 500px at 85% 20%, rgba(0,0,0,.25), transparent 60%),
+      linear-gradient(90deg, var(--violet-deep) 0%, #3b2376 40%, #2c1a6a 60%, var(--violet-deep) 100%);
+  }
+
+  /* abstract blobs (like screenshot) */
+  .vv-footer::before,
+  .vv-footer::after{
+    content:"";
+    position:absolute; inset:auto -15% -18% -15%;
+    height:70%;
+    background:
+      radial-gradient(58% 70% at 20% 90%, #0e0b1a 0 60%, transparent 62%) 0 100%/60% 70% no-repeat,
+      radial-gradient(60% 80% at 90% 30%, #0e0b1a 0 64%, transparent 66%) 100% 30%/60% 70% no-repeat;
+    opacity:.9;
+    z-index:0;
+  }
+  .vv-footer::before{
+    inset:auto -10% -35% -10%;
+    filter: blur(2px);
+  }
+
+  /* CTA */
+  .vv-cta{
+    text-align:center;
+    max-width:920px;
+    margin:0 auto 40px;
+    padding:0 16px;
+    position:relative;
+    z-index:1;
+  }
+  .vv-cta h2{
+    font-size: clamp(28px, 4vw, 54px);
+    line-height:1.05;
+    margin:0 0 12px;
+    font-weight:800;
+    letter-spacing:.2px;
+  }
+  .vv-cta p{
+    margin:0 auto 20px;
+    max-width:720px;
+    color:var(--muted);
+  }
+  .vv-btn{
+    display:inline-block;
+    padding:12px 22px;
+    background:linear-gradient(180deg, var(--btn), #1fa650);
+    color:#08130a;
+    border-radius:10px;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 0 0 10px rgba(52,199,89,.08), 0 6px 30px rgba(52,199,89,.35);
+    transition: transform .18s ease, box-shadow .2s ease;
+  }
+  .vv-btn:hover{ transform: translateY(-1px); box-shadow:0 0 0 12px rgba(52,199,89,.10), 0 10px 36px rgba(52,199,89,.45)}
+
+  /* Grid */
+  .vv-wrap{
+    position:relative;
+    z-index:1;
+    max-width:1200px;
+    margin:40px auto 28px;
+    padding:0 20px 10px;
+    display:grid;
+    grid-template-columns: 1.1fr repeat(4, 1fr) 1.2fr;
+    gap:28px 40px;
+    align-items:start;
+  }
+
+  .col h4{
+    font-size:12px;
+    letter-spacing:.18em;
+    color:#e9e5ff;
+    margin:0 0 12px;
+  }
+  .col ul{list-style:none; padding:0; margin:0}
+  .col li{margin:10px 0}
+  .col a{color:#e7e7f4; text-decoration:none}
+  .col a:hover{ text-decoration:underline }
+
+  /* brand */
+  .brand .logo{
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size:54px;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:.02em;
+    color:#fff;
+  }
+
+  /* social */
+  .social .icons{ display:flex; gap:14px; }
+  .social .icons a{
+    width:42px; height:42px; border-radius:50%;
+    display:grid; place-items:center;
+    background:rgba(255,255,255,.1);
+    color:#e9e9f7; font-size:16px;
+    border:1px solid rgba(255,255,255,.14);
+    transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .social .icons a:hover{ transform:translateY(-2px); background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.26) }
+
+  /* copyright */
+  .vv-copy{
+    position:relative; z-index:1;
+    padding:18px 22px 36px;
+    color:#b7b7c8;
+    font-size:13px;
+    max-width:1200px; margin:0 auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px){
+    .vv-wrap{
+      grid-template-columns: 1fr 1fr;
+      gap:28px;
+    }
+    .brand{ grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px){
+    .vv-cta{ margin-bottom: 24px; }
+    .vv-wrap{
+      grid-template-columns: 1fr;
+    }
+    .brand .logo{ font-size:42px; }
+    .social .icons a{ width:38px; height:38px; font-size:15px; }
+    .vv-copy{ padding-bottom:28px; }
+  }
+
+
+  @media (max-width: 640px){
+  /* One column + center all columns */
+  .vv-wrap{
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* Center headings + lists for every col (brand & social included) */
+  .vv-wrap .col{
+    width: 100%;
+    text-align: center !important;
+  }
+
+  /* Make UL full-center (override earlier inline-block/left rules) */
+  .vv-wrap .col ul{
+    display: block !important;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center !important;
+  }
+
+  /* Neat spacing and no bullets */
+  .vv-wrap .col li{
+    list-style: none;
+    margin: 8px 0;
+  }
+
+  /* Allow long links to wrap (fixes ABOUT’s last item) */
+  .vv-wrap .col a{
+    white-space: normal !important;
+  }
+
+  /* Brand logo centered */
+  .vv-wrap .brand img{
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Social icons row centered */
+  .vv-wrap .social .icons{
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+
+</style>
+  </main>
+
+  <!-- ===== EXISTING TIMER (unchanged) ===== -->
+  <script>
+  (function(){
+    const ROOT = document.getElementById('vv48');
+    if(!ROOT) return;
+    const HOURS    = +ROOT.dataset.hours || 48;
+    const DURATION = HOURS * 60 * 60 * 1000;
+    const KEY      = (ROOT.id || 'vv48') + '_start_at';
+    function setStart(t){
+      try{ localStorage.setItem(KEY, String(t)); }
+      catch(e){
+        document.cookie = KEY + '=' + encodeURIComponent(String(t)) +
+          '; max-age=' + Math.ceil(DURATION/1000) + '; path=/; SameSite=Lax';
+      }
+    }
+    function getCookie(name){
+      if(!document.cookie) return null;
+      const parts = document.cookie.split('; ');
+      for(const part of parts){
+        const eq = part.indexOf('=');
+        if(eq < 0) continue;
+        const k = part.slice(0, eq);
+        if(k === name) return decodeURIComponent(part.slice(eq+1));
+      }
+      return null;
+    }
+    function getStart(){
+      try{
+        const v = localStorage.getItem(KEY);
+        if(v !== null) return Number(v);
+      }catch(e){}
+      const c = getCookie(KEY);
+      return c ? Number(c) : null;
+    }
+    function clearStart(){
+      try{ localStorage.removeItem(KEY); }catch(e){}
+      document.cookie = KEY + '=; max-age=0; path=/; SameSite=Lax';
+    }
+    let start = getStart();
+    if(!start || isNaN(start)){ start = Date.now(); setStart(start); }
+    const end = start + DURATION;
+    const dd = ROOT.querySelector('.dd');
+    const hh = ROOT.querySelector('.hh');
+    const mm = ROOT.querySelector('.mm');
+    const ss = ROOT.querySelector('.ss');
+    const pad = n => String(n).padStart(2,'0');
+    let tmo;
+    function render(){
+      const now  = Date.now();
+      let left   = Math.max(0, end - now);
+      if(left <= 0){
+        if(dd) dd.textContent = '00';
+        if(hh) hh.textContent = '00';
+        if(mm) mm.textContent = '00';
+        if(ss) ss.textContent = '00';
+        return;
+      }
+      const days  = Math.floor(left / 86400000); left -= days  * 86400000;
+      const hours = Math.floor(left / 3600000);  left -= hours * 3600000;
+      const mins  = Math.floor(left / 60000);    left -= mins  * 60000;
+      const secs  = Math.floor(left / 1000);
+      if(dd) dd.textContent = pad(days);
+      if(hh) hh.textContent = pad(hours);
+      if(mm) mm.textContent = pad(mins);
+      if(ss) ss.textContent = pad(secs);
+      clearTimeout(tmo);
+      tmo = setTimeout(render, 1000 - (Date.now() % 1000) + 2);
+    }
+    window.addEventListener('storage', e => { if(e.key === KEY) location.reload(); });
+    window.vv48Reset = () => { clearStart(); location.reload(); };
+    render();
+  })();
+  </script>
+
+  <!-- ===== NEXT BUTTON ACTION: scroll to CTA ===== -->
+  <script>
+    document.getElementById('nextBtn')?.addEventListener('click', () => {
+      document.querySelector('.cta')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+
+  <!-- ===== GOOGLE TRANSLATE (English / Russian pills) ===== -->
+  <!-- ===== GOOGLE TRANSLATE (English / Russian pills) + NAV/PILL I18N ===== -->
+<script>
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,ru',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  // Trigger Google Translate language switch
+  function doGTranslate(lang){
+    var select = document.querySelector('select.goog-te-combo');
+    if(!select){ setTimeout(function(){ doGTranslate(lang); }, 400); return; }
+    select.value = lang;
+    select.dispatchEvent(new Event('change'));
+  }
+
+  // --- Simple UI dictionary for navbar + pills ---
+  const I18N = {
+    en: {
+      testimonials: 'Testimonials ✨',
+      courses: 'Courses',
+      reviews: 'Reviews',
+      faqs: 'FAQs',
+      pillEn: 'English',
+      pillRu: 'русский'
+    },
+    ru: {
+      testimonials: 'Отзывы ✨',
+      courses: 'Курсы',
+      reviews: 'Рецензии',
+      faqs: 'Вопросы и ответы',
+      pillEn: 'Английский',
+      pillRu: 'Русский'
+    }
+  };
+
+  function setLanguageUI(lang){
+    const t = I18N[lang] || I18N.en;
+
+    // Navbar labels (first 4 links of .menu)
+    const menu = document.querySelector('.menu');
+    if(menu){
+      menu.classList.add('notranslate'); // prevent Google from auto-translating these again
+      const links = menu.querySelectorAll('a');
+      if(links[0]) links[0].textContent = t.testimonials;
+      if(links[1]) links[1].textContent = t.courses;
+      if(links[2]) links[2].textContent = t.reviews;
+      if(links[3]) links[3].textContent = t.faqs;
+    }
+
+    // Language pills text
+    const langWrap = document.querySelector('.lang');
+    if(langWrap){
+      langWrap.classList.add('notranslate');
+      const pills = langWrap.querySelectorAll('.pill');
+      if(pills[0]) pills[0].textContent = t.pillEn; // left pill
+      if(pills[1]) pills[1].textContent = t.pillRu; // right pill
+    }
+  }
+
+  // Bind pills
+  document.addEventListener('DOMContentLoaded', function(){
+    setLanguageUI('en'); // initial
+
+    var pills = document.querySelectorAll('.lang .pill');
+    pills.forEach(function(p){
+      var txt = p.textContent.trim().toLowerCase();
+      // English pill
+      if(txt.includes('english') || txt.includes('англий')){
+        p.addEventListener('click', function(){
+          setLanguageUI('en');
+          doGTranslate('en');
+        });
+      }
+      // Russian pill
+      if(txt.includes('рус') || txt.includes('russ')){
+        p.addEventListener('click', function(){
+          setLanguageUI('ru');
+          doGTranslate('ru');
+        });
+      }
+    });
+  });
+</script>
+
+<script>
+  document.getElementById('prevBtn')?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
