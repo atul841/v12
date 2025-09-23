@@ -202,7 +202,7 @@ a[nav-link="active"] *{
               href="/#pricing" class="navbar_link-text" style="font-size: 17px;">Reviews</a>
               <span class="live-inline">
   <span class="live-dot" aria-hidden="true"></span>
-  <span class="live-text" ><a href="live.html" style="color: white; font-weight: 400; font-size: 17px; ">Live Top Rankers</a></span>
+  <span class="live-text" ><a href="live.html" style="color: white; font-weight: 400; font-size: 17px; " class="live_rank">Live Top Rankers</a></span>
 </span>
               <a href="/#faqs" class="navbar_link-text" style="font-size: 17px;">FAQs</a>
           </div>
@@ -212,9 +212,27 @@ a[nav-link="active"] *{
 
 
           <a  class="vv-btn" href="pdf.html" >
-  <span style="color: #000;">Download PDF</span>
+  <span style="color: #000;" class="textdownload">Download PDF</span>
 
-</a>
+</a>  <style>
+  @media (max-width:768px) {
+        .vv-btn{ 
+          width: 93px;
+          height: 23px;
+        }
+        .textdownload{ 
+          font-size: 10px;
+          white-space: nowrap;        /* हमेशा एक ही लाइन */
+
+        }
+        
+       
+    
+  }
+
+  
+</style>
+
 
           <button class="button is-signup is-rounded w-button" data-gt-lang="en" data-fixed-label="English">
             <span class="notranslate" translate="no">English</span>
