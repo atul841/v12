@@ -154,8 +154,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
  // 4) Buttons wire-up
-        document.getElementById('btn-en').addEventListener('click', () => setLang('en'));
-        document.getElementById('btn-ru').addEventListener('click', () => setLang('ru'));
+        // document.getElementById('btn-en').addEventListener('click', () => setLang('en'));
+        // document.getElementById('btn-ru').addEventListener('click', () => setLang('ru'));
      
 
     // get all the copy buttons

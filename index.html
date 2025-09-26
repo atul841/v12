@@ -45,9 +45,217 @@
   <script data-memberstack-app="app_clnk2n9i0001y0t615bq07a1w" src="js/memberstack.js" type="text/javascript"></script>
 
   <script async src="js/cmsfilter.js"></script>
+
+  
+
+
+  <!-- WebSite + Sitelinks Search Box -->
+
+
+<!-- Organization (logo, contact, social) -->
+
+
+<!-- Breadcrumbs (हर पेज पर उसके हिसाब से) -->
+
+
 </head>
 
+
+
+
+
 <body>
+
+
+   <!-- Frist lead  that here that part of that nearest near with in that t....  missing part of not be submitted to not be connected -->
+
+
+  <!-- Lead Capture Modal: open instantly on page load (no 3s delay), transparent+blur backdrop, page behind can scroll -->
+<section id="vv-lead-modal" aria-modal="true" role="dialog" action="lead_submit.php" 
+      method="POST"
+      autocomplete="on"
+      novalidate>
+  <!-- Transparent blur layer (doesn't block scroll/clicks) -->
+  <div class="vv-blur"></div>
+
+  <!-- Clickable dialog -->
+  <div class="vv-lead-dialog">
+    <h3 class="vv-lead-title" style="color: yellow;">Welcome 👋</h3>
+
+    <form id="vv-lead-form" autocomplete="on" >
+      <label class="vv-field">
+        <span>Name</span>
+        <input type="text" name="name" placeholder="Your name" required>
+      </label>
+
+      <label class="vv-field">
+        <span>Contact Number</span>
+        <input type="tel" name="phone" placeholder="10-digit mobile" inputmode="numeric"  required>
+      </label>
+
+      <label class="vv-field">
+        <span>Email</span>
+        <input type="email" name="email" placeholder="you@example.com" required>
+      </label>
+
+      <button type="submit" class="vv-btn" style="background:#0e9b42;">Submit</button>
+      
+    </form>
+  </div>
+
+  <style>
+    /* Root overlay: ALWAYS visible until submit; doesn't block background interactions */
+    #vv-lead-modal{
+      position:fixed; inset:0; z-index:2147483647;
+      display:block;               /* <- visible by default */
+      pointer-events:none;         /* backdrop lets page scroll/click */
+    }
+
+    /* Transparent-looking backdrop + reliable blur */
+    #vv-lead-modal .vv-blur{
+      position:fixed; inset:0;
+      background:rgba(255,255,255,0.02);  /* almost transparent; helps blur on all browsers */
+      backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+      pointer-events:none;
+    }
+
+    /* Centered dialog (clickable) */
+    #vv-lead-modal .vv-lead-dialog{
+  position:fixed; left:50%; top:50%;
+  transform:translate(-50%,-50%) scale(.94);
+  opacity:1; will-change:transform,opacity;
+  pointer-events:auto;
+  width:min(92vw,480px);
+  padding:20px 18px;
+  border-radius:18px;
+  border:1px solid rgba(2,6,23,.10);
+  background: rgba(88, 19, 101, 0.2); /* ⬅️ 0.65 = zyada solid, 0.3 = zyada transparent */
+  box-shadow:0 20px 60px rgba(2,6,23,.15);
+  animation:vvPop .45s cubic-bezier(.2,.9,.25,1.2) forwards;
+}
+
+    @keyframes vvPop{
+      0%{ transform:translate(-50%,-50%) scale(.88); opacity:0 }
+      60%{ transform:translate(-50%,-50%) scale(1.03); opacity:1 }
+      100%{ transform:translate(-50%,-50%) scale(1) }
+    }
+
+    /* Minimal form styles */
+    .vv-lead-title{ margin:4px 6px 12px; font-weight:800; color:#fff }
+    .vv-field{ display:block; margin:10px 6px }
+    .vv-field span{ display:block; margin:0 0 6px; color:#fff; opacity:.9 }
+    .vv-field input{
+      width:100%; padding:12px 14px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.25); background:#fff; outline:none;
+      transition:border .2s, box-shadow .2s;
+    }
+    .vv-field input:focus{ border-color:#17c964; box-shadow:0 0 0 3px rgba(23,201,100,.15) }
+    .vv-btn{ width:100%; margin:12px 6px 6px; padding:12px 14px; border:0; border-radius:12px; color:#fff; font-weight:700; cursor:pointer }
+    .vv-note{ margin:6px; font-size:12px; color:#fff; opacity:.85 }
+    @media (max-width:480px){ .vv-lead-dialog{ padding:16px 14px; border-radius:16px } }
+  </style>
+
+<script>
+  (function(){
+    function openModal(m){ m.classList.add('is-open'); m.setAttribute('aria-hidden','false'); }
+    function closeModal(m){ m.classList.remove('is-open'); m.setAttribute('aria-hidden','true'); }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const modal = document.getElementById('vv-lead-modal');
+      if (!modal) return;
+      if (modal.parentNode !== document.body) document.body.appendChild(modal);
+      openModal(modal); // page load par open (aapki requirement ke hisaab se)
+
+      const form = modal.querySelector('#vv-lead-form');
+      const btn  = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+
+        // Button loading state (optional)
+        const prevTxt = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Submitting...';
+
+        try {
+          const formData = new FormData(form);
+          const res = await fetch('lead_submit.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          const data = await res.json();
+          if (!res.ok || !data.ok) throw new Error(data.error || 'Failed');
+
+          // ✅ Server ne save kar diya — ab modal band karo
+          closeModal(modal);
+        } catch (err) {
+          alert('Submission failed. Please try again.');
+        } finally {
+          btn.disabled = false; btn.textContent = prevTxt;
+        }
+      });
+    });
+  })();
+</script>
+
+  <script>
+    (function(){
+      // Keep it open until submit; if any script hides it, force show again.
+      document.addEventListener('DOMContentLoaded', function(){
+        const modal = document.getElementById('vv-lead-modal');
+        if (!modal) return;
+
+        // Ensure modal sits at end of <body> (avoids z-index/position issues)
+        if (modal.parentNode !== document.body) document.body.appendChild(modal);
+
+        let submitted = false;
+
+        // Force it visible now
+        function forceOpen(){
+          if (!document.body.contains(modal)) document.body.appendChild(modal);
+          modal.style.display = 'block';
+          modal.setAttribute('aria-hidden','false');
+        }
+        forceOpen();
+
+        // Watch for any attempts to hide/remove it and undo them (until submitted)
+        const mo = new MutationObserver(() => {
+          if (submitted) { mo.disconnect(); return; }
+          const cs = getComputedStyle(modal);
+          if (cs.display === 'none') forceOpen();
+        });
+        mo.observe(document.documentElement, { attributes:true, childList:true, subtree:true, attributeFilter:['style','class'] });
+
+        // Close ONLY on submit
+        const form = modal.querySelector('#vv-lead-form');
+        if (form){
+          form.addEventListener('submit', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            if (!form.reportValidity()) return;
+            submitted = true;
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden','true');
+            mo.disconnect();
+          }, true); // capture = true so we intercept before other handlers
+        }
+      });
+    })();
+  </script>
+</section>
+
+
+  
+
+  <!-- website show part that here in section that  from fiil  start here  -->
+
+  <!-- Lead Capture Modal (blur-underlay until form submit) -->
+
+
+
+<!-- end here from page  -->
 
   <style>
 
@@ -176,6 +384,27 @@ a[nav-link="active"] *{
     padding:.2rem .5rem; border-radius:8px;
   }
   .vv-btn:active{ transform:translateY(1px); }
+  
+
+ 
+  @media (max-width: 768px) {
+  .navbar_menu-wrap .image-8 {
+    width: 180px !important;
+    height: auto !important;
+    max-height: 56px !important;
+  }
+}
+@media (max-width: 480px) {
+  .navbar_menu-wrap .image-8 {
+    width: 186px !important;
+    height: auto !important;
+  }
+}
+
+
+
+
+
 
 
 </style>
@@ -188,7 +417,7 @@ a[nav-link="active"] *{
   <footer class="page-wrapper is--home">
     <nav class="section_navbar" style="background: linear-gradient(45deg, rgb(146,149,146) 50%, #75568f 50%);">
       <div class="navbar_component">
-        <div class="navbar_menu-wrap"><a href="index.html" aria-current="page" class="w-inline-block w--current"><img style="width: 150px; height: 68px;"
+        <div class="navbar_menu-wrap"><a href="index.html" aria-current="page" class="imageposition w-inline-block w--current"><img style="width: 150px; height: 68px;"
               src="images/logo.png" loading="lazy" alt class="image-8"></a></div>
         <div id="w-node-_013085e8-b711-872d-66ba-d0f7b35c7685-e21728cd" class="navbar_menu-wrap mobile">
           <div data-ms-content="!members" class="div-block-48"><a href="/#reviews"
@@ -198,7 +427,7 @@ a[nav-link="active"] *{
                 <div class="button-line-15"></div>
               </div>
             </a>
-            <link rel="prefetch" href="/sections"><a href="/#pricing" class="navbar_link-text" style="font-size: 17px;">Courses</a><a
+            <link rel="prefetch" href="#"><a href="/#pricing" class="navbar_link-text" style="font-size: 17px;">Courses</a><a
               href="/#pricing" class="navbar_link-text" style="font-size: 17px;">Reviews</a>
               <span class="live-inline">
   <span class="live-dot" aria-hidden="true"></span>
@@ -210,28 +439,40 @@ a[nav-link="active"] *{
         </div>
         <div id="w-node-f4159e66-6519-c843-b0f9-91c04d398c9a-e21728cd" class="navbar_button-wrap">
 
+         <a class="pill-btn" href="pdf.html" style="color: #000; font-size: 13px; font-weight: 470;">Updates &amp; Downloads</a>
+         <style>
+          /* Green gradient pill */
+.pill-btn{
+  --c1:#00d14e;   /* left green */
+  --c2:#8ae234;   /* right lime */
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 18px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--c1),var(--c2));
+  color:#fff; font-weight:700; letter-spacing:.2px;
+  text-decoration:none;
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.25);
+  transition: transform .15s ease, filter .2s ease;
+}
+.pill-btn:hover{ filter:brightness(1.05); }
+.pill-btn:active{ transform:translateY(1px); }
+.pill-btn:focus-visible{
+  outline: 3px solid rgba(0,209,78,.35);
+  outline-offset: 2px;
+}
 
-          <a  class="vv-btn" href="pdf.html" >
-  <span style="color: #000;" class="textdownload">Download PDF</span>
+/* optional sizes */
+.pill-btn.sm{ padding:8px 14px; font-size:13px }
+.pill-btn.lg{ padding:12px 22px; font-size:16px }
 
-</a>  <style>
-  @media (max-width:768px) {
-        .vv-btn{ 
-          width: 93px;
-          height: 23px;
-        }
-        .textdownload{ 
-          font-size: 10px;
-          white-space: nowrap;        /* हमेशा एक ही लाइन */
+/* optional full width on mobile */
+@media (max-width:620px){
+  .pill-btn.full{ display:flex; width:100% }
+}
 
-        }
-        
-       
-    
-  }
-
-  
-</style>
+         </style>
 
 
           <button class="button is-signup is-rounded w-button" data-gt-lang="en" data-fixed-label="English">
@@ -294,9 +535,13 @@ a[nav-link="active"] *{
                       </div>
                     </a><a href="/#pricing" class="navbar_link-text">Courses</a><a href="/#reviews"
                       class="navbar_link-text">Reviews</a>
+
+                      
+
+
                       <span class="live-inline">
   <span class="live-dot" aria-hidden="true"></span>
-  <span class="live-text" ><a href="live.html" style="color: white; font-weight: 400; font-size: 17px;">Live Top Rankers</a></span>
+  <span class="live-text" ><a href="live.html" style="color: white; font-weight: 400; font-size: 12px;">Live Top Rankers</a></span>
 </span>
                       <a href="#faqs" class="navbar_link-text">FAQs</a></div>
                       
@@ -339,15 +584,11 @@ a[nav-link="active"] *{
 
 
 
-
-
-
-
-
-
-
-
   <style>
+   
+
+
+
     @media (max-width: 640px){
   .promo-line{ display:none; }
 }
@@ -1784,7 +2025,7 @@ a[nav-link="active"] *{
                             <div></div>
                           </div>
                         </div ><a data-ms-price:add="prc_micro-interactions-pro-lifetime-access-bh550t9c"
-                          data-w-id="24b0610e-ce6f-e02c-8058-eb66b9f09aab" href="https://vandv.signaturesoftware.co.in/Auth/UserLogin"
+                          data-w-id="24b0610e-ce6f-e02c-8058-eb66b9f09aab" href="https://vandvagro.vandvagro.com/Auth/UserLogin"
                           class="button-block-27 primary w-inline-block">
                           <div class="button-text-27 is-large is-text-small">Apply Now
                           </div>
@@ -1802,7 +2043,7 @@ a[nav-link="active"] *{
                               class="button-icon-bg-27"></div>
                           </div>
                         </a>
-                        <link rel="prefetch" href="/signup">
+                        <link rel="prefetch" href="#">
                       </div>
                       <div class="users-block max-width-small">
                         <div class="users-icon-block">
@@ -2066,7 +2307,7 @@ a[nav-link="active"] *{
 
                           
                         </div><a data-ms-price:update="prc_mi-pro-annual-vdvh0y18"
-                          data-w-id="24b0610e-ce6f-e02c-8058-eb66b9f09a6f" href="https://vandv.signaturesoftware.co.in/Auth/UserLogin"
+                          data-w-id="24b0610e-ce6f-e02c-8058-eb66b9f09a6f" href="https://vandvagro.vandvagro.com/Auth/UserLogin"
                           class="button-block-27 primary w-inline-block">
 
                           
@@ -2085,7 +2326,7 @@ a[nav-link="active"] *{
                               class="button-icon-bg-27"></div>
                           </div>
                         </a>
-                        <link rel="prefetch" href="/signup">
+                        <link rel="prefetch" href="#">
                         <div class="users-block max-width-small">
                         <div class="users-icon-block">
                           <div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg"
@@ -2307,24 +2548,7 @@ You’re free to cancel at any time, but once you do, your access to all courses
           </div>
         </div>
         
-          <!-- <div class="credit_wrap">
-            <div class="credit_item"><img src="images/logo.png" loading="lazy" alt class="brand_logo">
-              <div class="text-size-tiny text-color-grey">Start Your V&V
-                Journey and become part of the new generation of
-                agri-entrepreneurs and skilled professionals. Learn proudly,
-                earn confidently, and see your life transform over the next 36
-                months.</div>
-             
-            </div>
-            <div class="divider is-small"></div>
-            <div class="credit_item">
-              <div class="text-size-tiny text-color-grey">© 2025 V&V Agro. All
-                Rights Reserved.</div><a href="#" target="_blank" class="bran_profile-link w-inline-block">
-
-              </a>
-              <link rel="prefetch" href="https://twitter.com/itshkmanzoor">
-            </div>
-          </div> -->
+          
         
           
         
@@ -2335,92 +2559,403 @@ You’re free to cancel at any time, but once you do, your access to all courses
        <br><br><br> 
 
 
-
-      
-<div class="footerbg" style="background-image: url(./images/bgimage1.png);  width: 1530px; height: 545px;">       
-<section class="partner-cta">
-  <div class="wrap">
-    <h2>Ready to grow with us?</h2>
-    <p>If you're interested in learning, earning,and transforming your future with V&V ,
-      one of our advisors will guide you.</p>
-    <a class="cta-btn" href="/#pricing" style="color: rgb(73, 176, 29); width: 150px; height: 4%;">Get started</a>
+<footer class="vv-footer" style="background-image: url(./images/bgimage1.png);">
+  <!-- CTA -->
+  <div class="vv-cta">
+    <h2 style="color: white; font-weight: 700;">Ready to grow with us?</h2>
+    <p style="color: white;">If you're interested in learning, earning, and transforming your future with V&V, one of our advisors will guide you.</p>
+    <a href="#get-started" class="vv-btn" style="color: white;">Get started</a>
   </div>
-</section>
 
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <!-- Brand -->
-      <div class="brand">
-        <div class="logo"><img src="./images/logo.png" alt="" style="width: 125px; height: 55px;"></div>
-      </div>
-
-      <!-- Partnerships -->
-      <div class="group">
-        <div class="title">Courses</div>
-        <nav class="list" >
-          <a href="#" style="font-size: 12.5px;">Agripreneur Lite</a>
-          <a href="#"style="font-size: 12.5px;">Agripreneur Pro</a>
-          <a href="#"style="font-size: 12.5px;">Mega Agripreneur</a>
-        </nav>
-      </div>
-
-      <!-- About -->
-      <div class="group">
-        <div class="title">ABOUT</div>
-        <nav class="list">
-          <a href="about.html"style="font-size: 12.5px;">About us</a>
-          <a href="#"style="font-size: 12.5px;">Our Mission</a>
-          <a href="#"style="font-size: 12.5px;">Our Story</a>
-          <a href="#"style="font-size: 12.5px;">Careers</a>
-          <a href="#"style="font-size: 12.5px;">India-Russia Collaboration</a>
-        </nav>
-      </div>
-
-      <!-- Support -->
-      <div class="group">
-        <div class="title">SUPPORT</div>
-        <nav class="list">
-          <a href="#"style="font-size: 12.5px;">FAQs</a>
-          <a href="#"style="font-size: 12.5px;">Contact Us</a>
-          <a href="#"style="font-size: 12.5px;">Student Login</a>
-        </nav>
-      </div>
-
-       <!-- legal -->
-      <div class="group">
-        <div class="title">LEGAL</div>
-        <nav class="list">
-          <a href="updatep.html" style="font-size: 12.5px;">Terms & Conditions</a>
-          <a href="disclemer.html" style="font-size: 12.5px;">Disclaimer</a>
-          <a href="licence.html" style="font-size: 12.5px;">End User License</a>
-          <a href="refund.html" style="font-size: 12.5px;">Refund Policy</a>
-          
-        </nav>
-      </div>
-
-      <!-- Follow -->
-      <div class="group">
-        <div class="title">FOLLOW US</div>
-        <div class="social">
-  <a href="#" aria-label="Facebook"  class="ico"><i class="fa-brands fa-facebook-f"></i></a>
-  <a href="#" aria-label="Twitter"   class="ico"><i class="fa-brands fa-x-twitter"></i></a>
-  <a href="#" aria-label="Instagram" class="ico"><i class="fa-brands fa-instagram"></i></a>
-  <a href="#" aria-label="LinkedIn"  class="ico"><i class="fa-brands fa-linkedin-in"></i></a>
-</div>
-
-      </div>
+  <!-- Footer content -->
+  <div class="vv-wrap">
+    <div class="col brand">
+      <img src="./images/logo.png" alt="" style="width: 100px; height: 50px;">
     </div>
 
-    <div class="bar" >
-      <small>© <span id="year"></span>  V&V Agro Global LLP. All rights reserved</small>
-     
+    <div class="col">
+      <h4>COURSES</h4>
+      <ul>
+        <li><a href="#" style="font-size: 14.5px;">Agripreneur Lite</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Agripreneur Pro</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Mega Agripreneur</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>ABOUT</h4>
+      <ul>
+        <li><a href="about.html"style="font-size: 14.5px;">About Us</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Our Mission</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Our Story</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Careers</a></li>
+        <li><a href="#"style="font-size: 14.5px; ">India–Russia Collaboration</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>SUPPORT</h4>
+      <ul>
+        <li><a href="#"style="font-size: 14.5px;">FAQs</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Contact Us</a></li> 
+        <li><a href="#"style="font-size: 14.5px;">Student Login</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>LEGAL</h4>
+      <ul>
+        <li><a href="updatep.html"style="font-size: 14.5px;white-space:nowrap; ">Terms &amp; Conditions</a></li>
+         <li><a href="disclemer.html"style="font-size: 14.5px;">Disclaimer</a></li>
+          <li><a href="licence.html"style="font-size: 14.5px;">End User License</a></li>
+           <li><a href="refund.html"style="font-size: 14.5px;">Refund</a></li>
+      </ul>
+    </div>
+
+    <div class="col social">
+      <h4>FOLLOW US</h4>
+      <div class="icons">
+        <a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a aria-label="X" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a aria-label="Instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a aria-label="LinkedIn" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
     </div>
   </div>
+
+  <div class="vv-copy" style="color: white;">© 2025 V&V Agro Global LLP. All rights reserved</div>
 </footer>
 
-      </div> 
+<style>
+  .vv-copy{
+  text-align: center !important;
+}
+
+
+  .vv-footer{
+    position: relative;
+    isolation:isolate;
+    color:var(--ink);
+    overflow:hidden;
+    padding-top:64px;
+    background:
+      radial-gradient(1200px 600px at 15% 10%, rgba(255,255,255,.06), transparent 60%),
+      radial-gradient(900px 500px at 85% 20%, rgba(0,0,0,.25), transparent 60%),
+      linear-gradient(90deg, var(--violet-deep) 0%, #3b2376 40%, #2c1a6a 60%, var(--violet-deep) 100%);
+  }
+
+  /* abstract blobs (like screenshot) */
+  .vv-footer::before,
+  .vv-footer::after{
+    content:"";
+    position:absolute; inset:auto -15% -18% -15%;
+    height:70%;
+    background:
+      radial-gradient(58% 70% at 20% 90%, #0e0b1a 0 60%, transparent 62%) 0 100%/60% 70% no-repeat,
+      radial-gradient(60% 80% at 90% 30%, #0e0b1a 0 64%, transparent 66%) 100% 30%/60% 70% no-repeat;
+    opacity:.9;
+    z-index:0;
+  }
+  .vv-footer::before{
+    inset:auto -10% -35% -10%;
+    filter: blur(2px);
+  }
+
+  /* CTA */
+  .vv-cta{
+    text-align:center;
+    max-width:920px;
+    margin:0 auto 40px;
+    padding:0 16px;
+    position:relative;
+    z-index:1;
+  }
+  .vv-cta h2{
+    font-size: clamp(28px, 4vw, 54px);
+    line-height:1.05;
+    margin:0 0 12px;
+    font-weight:800;
+    letter-spacing:.2px;
+  }
+  .vv-cta p{
+    margin:0 auto 20px;
+    max-width:720px;
+    color:var(--muted);
+  }
+  .vv-btn{
+    display:inline-block;
+    padding:12px 22px;
+    background:linear-gradient(180deg, var(--btn), #1fa650);
+    color:#08130a;
+    border-radius:10px;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 0 0 10px rgba(52,199,89,.08), 0 6px 30px rgba(52,199,89,.35);
+    transition: transform .18s ease, box-shadow .2s ease;
+  }
+  .vv-btn:hover{ transform: translateY(-1px); box-shadow:0 0 0 12px rgba(52,199,89,.10), 0 10px 36px rgba(52,199,89,.45)}
+
+  /* Grid */
+  .vv-wrap{
+    position:relative;
+    z-index:1;
+    max-width:1200px;
+    margin:40px auto 28px;
+    padding:0 20px 10px;
+    display:grid;
+    grid-template-columns: 1.1fr repeat(4, 1fr) 1.2fr;
+    gap:28px 40px;
+    align-items:start;
+  }
+
+  .col h4{
+    font-size:12px;
+    letter-spacing:.18em;
+    color:#e9e5ff;
+    margin:0 0 12px;
+  }
+  .col ul{list-style:none; padding:0; margin:0}
+  .col li{margin:10px 0}
+  .col a{color:#e7e7f4; text-decoration:none}
+  .col a:hover{ text-decoration:underline }
+
+  /* brand */
+  .brand .logo{
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size:54px;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:.02em;
+    color:#fff;
+  }
+
+  /* social */
+  .social .icons{ display:flex; gap:14px; }
+  .social .icons a{
+    width:42px; height:42px; border-radius:50%;
+    display:grid; place-items:center;
+    background:rgba(255,255,255,.1);
+    color:#e9e9f7; font-size:16px;
+    border:1px solid rgba(255,255,255,.14);
+    transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .social .icons a:hover{ transform:translateY(-2px); background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.26) }
+
+  /* copyright */
+  .vv-copy{
+    position:relative; z-index:1;
+    padding:18px 22px 36px;
+    color:#b7b7c8;
+    font-size:13px;
+    max-width:1200px; margin:0 auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px){
+    .vv-wrap{
+      grid-template-columns: 1fr 1fr;
+      gap:28px;
+    }
+    .brand{ grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px){
+    .vv-cta{ margin-bottom: 24px; }
+    .vv-wrap{
+      grid-template-columns: 1fr;
+    }
+    .brand .logo{ font-size:42px; }
+    .social .icons a{ width:38px; height:38px; font-size:15px; }
+    .vv-copy{ padding-bottom:28px; }
+  }
+
+
+  @media (max-width: 640px){
+  /* One column + center all columns */
+  .vv-wrap{
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* Center headings + lists for every col (brand & social included) */
+  .vv-wrap .col{
+    width: 100%;
+    text-align: center !important;
+  }
+
+  /* Make UL full-center (override earlier inline-block/left rules) */
+  .vv-wrap .col ul{
+    display: block !important;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center !important;
+  }
+
+  /* Neat spacing and no bullets */
+  .vv-wrap .col li{
+    list-style: none;
+    margin: 8px 0;
+  }
+
+  /* Allow long links to wrap (fixes ABOUT’s last item) */
+  .vv-wrap .col a{
+    white-space: normal !important;
+  }
+
+  /* Brand logo centered */
+  .vv-wrap .brand img{
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Social icons row centered */
+  .vv-wrap .social .icons{
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+
+.os-copy p{
+  text-align: justify;           /* दोनों किनारों से बराबर */
+  text-align-last: justify;      /* आख़िरी लाइन भी justify */
+  text-justify: inter-word;      /* शब्दों के बीच spacing समायोजित */
+  hyphens: auto;                 /* बड़े शब्दों पर hyphenation (बेहतर spacing) */
+}
+
+
+
+/* put this after your existing CSS */
+.a3-text{
+  text-align: justify;
+  text-align-last: left !important;   /* या start */
+}
+
+/* tidy typography */
+.a3-text{ text-align: justify; text-align-last: left; line-height:1.9; }
+.a3-list{
+  margin:12px 0 0; padding-left:1.1rem;
+  list-style: disc;                    /* bullets */
+}
+.a3-list li{ margin:6px 0; line-height:1.9; text-align:left; }
+
+
+
+/* Our Story → paragraph alignment fix */
+.os-copy{ text-align: left; }                 /* center inherit ko override */
+.os-copy p{
+  margin: 0;
+  line-height: 1.9;
+  text-align: justify;                        /* dono kinare se barabar */
+  text-align-last: left !important;           /* last line middle na ho */
+  text-justify: inter-word;                   /* behtar spacing */
+  hyphens: auto;                              /* lambi words pe hyphen allow */
+}
+
+
+</style>
+      
+
+
+       <style>
+
+        /* ---------- responsive footer background ---------- */
+.footerbg {
+  /* background image path — same as before */
+  background-image: url('./images/bgimage1.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;           /* keeps aspect and fills area */
+  width: 100%;
+  box-sizing: border-box;
+  /* use padding to provide vertical space instead of fixed height */
+  padding-top: 60px;                /* space above partner-cta */
+  padding-bottom: 40px;             /* space below footer */
+  position: relative;
+  overflow: hidden;
+}
+
+/* optional: add a subtle overlay so white text stays readable */
+.footerbg::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25); /* tweak darkness (0 = none, 0.5 darker) */
+  pointer-events: none;
+}
+
+/* keep the actual content above the overlay */
+.footerbg > * { position: relative; z-index: 2; }
+
+/* partner cta style (example) */
+.partner-cta { padding: 40px 0 20px; text-align: center; color: #fff; }
+.partner-cta .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+/* cta button adjustments */
+.cta-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  color: rgb(73,176,29);
+  background: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* footer grid layout (responsive) */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 22px;
+  align-items: start;
+  margin-top: 30px;
+}
+
+/* make logo responsive */
+.footer-logo {
+  width: 125px;
+  height: auto;
+  display: block;
+}
+
+/* small link font default */
+.footer-grid .list a {
+  display: block;
+  font-size: 12.5px;
+  color: #fff; /* tweak if needed */
+  text-decoration: none;
+  margin: 6px 0;
+}
+
+/* bottom bar */
+.bar { margin-top: 20px; color: #ddd; text-align: center; }
+
+/* ------------------ Responsive breakpoints ------------------ */
+
+/* tablets */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .footerbg { padding-top: 50px; padding-bottom: 36px; }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .partner-cta { padding: 28px 0 12px; }
+  .footerbg { padding-top: 40px; padding-bottom: 30px; background-position: center top; }
+  .footer-logo { width: 110px; }
+  .footer-grid .list a { font-size: 12px; }
+}
+
+/* small phones */
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 12px; }
+  .footer-logo { width: 95px; }
+  .footer-grid .list a { font-size: 11px; }
+  .partner-cta h2 { font-size: 18px; }
+  .partner-cta p { font-size: 13px; max-width: 320px; margin: 6px auto 12px; }
+}
+
+
+       </style>
     </main>
 
   </footer>

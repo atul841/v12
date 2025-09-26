@@ -179,22 +179,42 @@
 
 <div class="dl-grid">
   <figure class="file-card">
-    <img class="image1" src="./images/aboutimage/thillef.gif" alt="thumbnail">
-    <figcaption><strong class="text1" style="font-size: 18px; font-weight: 500;">Content about file</strong></figcaption>
+    <img class="image1" src="./images/thimabout.png" alt="thumbnail"
+         data-file="V&V Business Plan For AgriPreneurs  (1)_compressed.pdf">
+    <figcaption><strong class="text1" style="font-size:18px;font-weight:500;">Content about file</strong></figcaption>
   </figure>
 
   <figure class="file-card">
-    <img class="image2" src="./images/aboutimage/thum1.gif" alt="thumbnail">
-    <figcaption ><strong style="font-size: 18px; font-weight: 500;">Content about file</strong></figcaption>
+    <img class="image2" src="./images/thimabout.png" alt="thumbnail"
+         data-file="V&V Business Plan For AgriPreneurs  (1)_compressed.pdf">
+    <figcaption><strong style="font-size:18px;font-weight:500;">Content about file</strong></figcaption>
   </figure>
 </div>
+
+<script>
+  // Image click => download the PDF in data-file
+  document.querySelectorAll('.dl-grid img[data-file]').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+      const url = img.dataset.file;
+      if (!url) return;
+      const a = document.createElement('a');
+      a.href = url;
+      a.setAttribute('download', url.split('/').pop() || 'download.pdf');
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+  });
+</script>
+
 
 
 
 
 <div class="dl-actions">
   <!-- LEFT -->
-  <a class=" download dl-combo shift-l" href="pdfmycompany.pdf" download>
+  <a class=" download dl-combo shift-l" href="V&V Business Plan For AgriPreneurs  (1)_compressed.pdf" download>
     <span class="dl-circle" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M12 3v12.2l4.1-4.1 1.4 1.4L12 18.9 6.5 12.5l1.4-1.4L12 15.2V3z"/></svg>
     </span>
@@ -202,8 +222,8 @@
   </a>
 
   <!-- RIGHT -->
-  <a class="dl-combo shift-r" href="pdfmycompany.pdf" download>
-  <span class="dl-circle" aria-hidden="true">
+  <a class="dl-combo shift-r" href="V&V Business Plan For AgriPreneurs  (1)_compressed.pdf" download>
+  <span class=" downloadtext1 dl-circle" aria-hidden="true">
     <svg viewBox="0 0 24 24"><path d="M12 3v12.2l4.1-4.1 1.4 1.4L12 18.9 6.5 12.5l1.4-1.4L12 15.2V3z"/></svg>
   </span>
   <span class="dl-label" style="font-weight:500; color:#0b0b0b;">DOWNLOAD</span>
@@ -221,6 +241,13 @@
         }
         .download{ 
             display: none !important;
+        }
+        .downloadtext1{ 
+          
+          margin-top: 206px;
+          margin-left: 13px;
+          
+          
         }
 
         
@@ -387,6 +414,304 @@
 }
 
 </style>
+
+   <!-- footer page has content in this here that part  -->
+
+    <footer class="vv-footer" style="background-image: url(./images/bgimage1.png);">
+  <!-- CTA -->
+  <div class="vv-cta">
+    <h2 style="color: white; font-weight: 700;">Ready to grow with us?</h2>
+    <p style="color: white;">If you're interested in learning, earning, and transforming your future with V&V, one of our advisors will guide you.</p>
+    <a href="#get-started" class="vv-btn" style="color: white;">Get started</a>
+  </div>
+
+  <!-- Footer content -->
+  <div class="vv-wrap">
+    <div class="col brand">
+      <img src="./images/logo.png" alt="" style="width: 100px; height: 50px;">
+    </div>
+
+    <div class="col">
+      <h4>COURSES</h4>
+      <ul>
+        <li><a href="#" style="font-size: 14.5px;">Agripreneur Lite</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Agripreneur Pro</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Mega Agripreneur</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>ABOUT</h4>
+      <ul>
+        <li><a href="#"style="font-size: 14.5px;">Our Mission</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Our Story</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Careers</a></li>
+        <li><a href="#"style="font-size: 14.5px; ">India–Russia Collaboration</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>SUPPORT</h4>
+      <ul>
+        <li><a href="#"style="font-size: 14.5px;">FAQs</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Contact Us</a></li>
+        <li><a href="#"style="font-size: 14.5px;">Student Login</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>LEGAL</h4>
+      <ul>
+        <li><a href="updatep.html"style="font-size: 14.5px;white-space:nowrap; ">Terms &amp; Conditions</a></li>
+         <li><a href="disclemer.html"style="font-size: 14.5px;">Disclaimer</a></li>
+          <li><a href="licence.html"style="font-size: 14.5px;">End User License</a></li>
+           <li><a href="refund.html"style="font-size: 14.5px;">Refund</a></li>
+      </ul>
+    </div>
+
+    <div class="col social">
+      <h4>FOLLOW US</h4>
+      <div class="icons">
+        <a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a aria-label="X" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a aria-label="Instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a aria-label="LinkedIn" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="vv-copy" style="color: white;">© 2025 V&V Agro Global LLP. All rights reserved</div>
+</footer>
+
+<style>
+  .vv-copy{
+  text-align: center !important;
+}
+
+
+  .vv-footer{
+    position: relative;
+    isolation:isolate;
+    color:var(--ink);
+    overflow:hidden;
+    padding-top:64px;
+    background:
+      radial-gradient(1200px 600px at 15% 10%, rgba(255,255,255,.06), transparent 60%),
+      radial-gradient(900px 500px at 85% 20%, rgba(0,0,0,.25), transparent 60%),
+      linear-gradient(90deg, var(--violet-deep) 0%, #3b2376 40%, #2c1a6a 60%, var(--violet-deep) 100%);
+  }
+
+  /* abstract blobs (like screenshot) */
+  .vv-footer::before,
+  .vv-footer::after{
+    content:"";
+    position:absolute; inset:auto -15% -18% -15%;
+    height:70%;
+    background:
+      radial-gradient(58% 70% at 20% 90%, #0e0b1a 0 60%, transparent 62%) 0 100%/60% 70% no-repeat,
+      radial-gradient(60% 80% at 90% 30%, #0e0b1a 0 64%, transparent 66%) 100% 30%/60% 70% no-repeat;
+    opacity:.9;
+    z-index:0;
+  }
+  .vv-footer::before{
+    inset:auto -10% -35% -10%;
+    filter: blur(2px);
+  }
+
+  /* CTA */
+  .vv-cta{
+    text-align:center;
+    max-width:920px;
+    margin:0 auto 40px;
+    padding:0 16px;
+    position:relative;
+    z-index:1;
+  }
+  .vv-cta h2{
+    font-size: clamp(28px, 4vw, 54px);
+    line-height:1.05;
+    margin:0 0 12px;
+    font-weight:800;
+    letter-spacing:.2px;
+  }
+  .vv-cta p{
+    margin:0 auto 20px;
+    max-width:720px;
+    color:var(--muted);
+  }
+  .vv-btn{
+    display:inline-block;
+    padding:12px 22px;
+    background:linear-gradient(180deg, var(--btn), #1fa650);
+    color:#08130a;
+    border-radius:10px;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 0 0 10px rgba(52,199,89,.08), 0 6px 30px rgba(52,199,89,.35);
+    transition: transform .18s ease, box-shadow .2s ease;
+  }
+  .vv-btn:hover{ transform: translateY(-1px); box-shadow:0 0 0 12px rgba(52,199,89,.10), 0 10px 36px rgba(52,199,89,.45)}
+
+  /* Grid */
+  .vv-wrap{
+    position:relative;
+    z-index:1;
+    max-width:1200px;
+    margin:40px auto 28px;
+    padding:0 20px 10px;
+    display:grid;
+    grid-template-columns: 1.1fr repeat(4, 1fr) 1.2fr;
+    gap:28px 40px;
+    align-items:start;
+  }
+
+  .col h4{
+    font-size:12px;
+    letter-spacing:.18em;
+    color:#e9e5ff;
+    margin:0 0 12px;
+  }
+  .col ul{list-style:none; padding:0; margin:0}
+  .col li{margin:10px 0}
+  .col a{color:#e7e7f4; text-decoration:none}
+  .col a:hover{ text-decoration:underline }
+
+  /* brand */
+  .brand .logo{
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size:54px;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:.02em;
+    color:#fff;
+  }
+
+  /* social */
+  .social .icons{ display:flex; gap:14px; }
+  .social .icons a{
+    width:42px; height:42px; border-radius:50%;
+    display:grid; place-items:center;
+    background:rgba(255,255,255,.1);
+    color:#e9e9f7; font-size:16px;
+    border:1px solid rgba(255,255,255,.14);
+    transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .social .icons a:hover{ transform:translateY(-2px); background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.26) }
+
+  /* copyright */
+  .vv-copy{
+    position:relative; z-index:1;
+    padding:18px 22px 36px;
+    color:#b7b7c8;
+    font-size:13px;
+    max-width:1200px; margin:0 auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px){
+    .vv-wrap{
+      grid-template-columns: 1fr 1fr;
+      gap:28px;
+    }
+    .brand{ grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px){
+    .vv-cta{ margin-bottom: 24px; }
+    .vv-wrap{
+      grid-template-columns: 1fr;
+    }
+    .brand .logo{ font-size:42px; }
+    .social .icons a{ width:38px; height:38px; font-size:15px; }
+    .vv-copy{ padding-bottom:28px; }
+  }
+
+
+  @media (max-width: 640px){
+  /* One column + center all columns */
+  .vv-wrap{
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* Center headings + lists for every col (brand & social included) */
+  .vv-wrap .col{
+    width: 100%;
+    text-align: center !important;
+  }
+
+  /* Make UL full-center (override earlier inline-block/left rules) */
+  .vv-wrap .col ul{
+    display: block !important;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center !important;
+  }
+
+  /* Neat spacing and no bullets */
+  .vv-wrap .col li{
+    list-style: none;
+    margin: 8px 0;
+  }
+
+  /* Allow long links to wrap (fixes ABOUT’s last item) */
+  .vv-wrap .col a{
+    white-space: normal !important;
+  }
+
+  /* Brand logo centered */
+  .vv-wrap .brand img{
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Social icons row centered */
+  .vv-wrap .social .icons{
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+
+.os-copy p{
+  text-align: justify;           /* दोनों किनारों से बराबर */
+  text-align-last: justify;      /* आख़िरी लाइन भी justify */
+  text-justify: inter-word;      /* शब्दों के बीच spacing समायोजित */
+  hyphens: auto;                 /* बड़े शब्दों पर hyphenation (बेहतर spacing) */
+}
+
+
+
+/* put this after your existing CSS */
+.a3-text{
+  text-align: justify;
+  text-align-last: left !important;   /* या start */
+}
+
+/* tidy typography */
+.a3-text{ text-align: justify; text-align-last: left; line-height:1.9; }
+.a3-list{
+  margin:12px 0 0; padding-left:1.1rem;
+  list-style: disc;                    /* bullets */
+}
+.a3-list li{ margin:6px 0; line-height:1.9; text-align:left; }
+
+
+
+/* Our Story → paragraph alignment fix */
+.os-copy{ text-align: left; }                 /* center inherit ko override */
+.os-copy p{
+  margin: 0;
+  line-height: 1.9;
+  text-align: justify;                        /* dono kinare se barabar */
+  text-align-last: left !important;           /* last line middle na ho */
+  text-justify: inter-word;                   /* behtar spacing */
+  hyphens: auto;                              /* lambi words pe hyphen allow */
+}
+
+
+</style>
+
+
 <script>
   document.querySelectorAll('.dl-combo').forEach(a=>{
     a.addEventListener('click', e=>{
